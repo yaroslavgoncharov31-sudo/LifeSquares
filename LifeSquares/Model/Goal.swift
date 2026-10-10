@@ -1,5 +1,6 @@
 import Foundation
 import  SwiftData
+import TimeCore
 
 @Model
 final class Goal: Identifiable {

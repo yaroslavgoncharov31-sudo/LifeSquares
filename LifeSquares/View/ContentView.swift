@@ -1,4 +1,5 @@
 import SwiftUI
+import TimeCore
 
 extension GoalColor {
     var color: Color {

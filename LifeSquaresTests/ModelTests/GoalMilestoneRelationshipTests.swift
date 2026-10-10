@@ -2,6 +2,7 @@ import SwiftData
 import Testing
 @testable import LifeSquares
 internal import Foundation
+internal import TimeCore
 
 @MainActor
 struct GoalMilestoneRelationshipTests {

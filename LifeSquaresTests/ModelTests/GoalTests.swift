@@ -2,6 +2,7 @@ import Testing
 @testable import LifeSquares
 import SwiftData
 internal import Foundation
+internal import TimeCore
 
 @MainActor
 struct LifeSquaresTests {
