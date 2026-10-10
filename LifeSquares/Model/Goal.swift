@@ -7,12 +7,20 @@ final class Goal: Identifiable {
     var title: String = ""
     var startDay: Date = Date.now
     var endDay: Date = Date.now
-    var color: GoalColor = GoalColor.red
-    var offWeekdays: OffWeekdays = OffWeekdays.monday
+    var colorRaw: String = GoalColor.blue.rawValue
+    var color: GoalColor {
+        get { GoalColor(rawValue: colorRaw) ?? .slate }
+        set { colorRaw = newValue.rawValue }
+    }
+    var offWeekdaysRaw: Int = 0
+    var offWeekdays: OffWeekdays {
+        get { OffWeekdays(rawValue: offWeekdaysRaw) }
+        set { offWeekdaysRaw = newValue.rawValue }
+    }
     var offDays: [Date] = []
     @Relationship(deleteRule: .cascade, inverse: \Milestone.goal) var milestones: [Milestone]? = []
 
-    init(title: String, startDay: Date, endDay: Date, color: GoalColor, offWeekdays: OffWeekdays, offDays: [Date], milestones: [Milestone]? = nil, calendar: Calendar = .current) {
+    init(title: String, startDay: Date, endDay: Date, color: GoalColor, offWeekdays: OffWeekdays, offDays: [Date], calendar: Calendar = .current) {
         self.title = title
         self.startDay = calendar.startOfDay(for: startDay)
         self.endDay = calendar.startOfDay(for: endDay)
