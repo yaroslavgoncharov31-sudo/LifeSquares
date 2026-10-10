@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C40D780F307295D5004D516A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = C40D780E307295D5004D516A /* .gitignore */; };
+		C4C91221307A1EE6007F7A86 /* TimeCore in Frameworks */ = {isa = PBXBuildFile; productRef = C4C91220307A1EE6007F7A86 /* TimeCore */; };
+		C4CB560A307A23C200563992 /* TimeCore in Frameworks */ = {isa = PBXBuildFile; productRef = C4CB5609307A23C200563992 /* TimeCore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,6 +26,7 @@
 		000000000000000000000120 /* LifeSquares.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LifeSquares.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C40D780E307295D5004D516A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		C40D78143072B025004D516A /* LifeSquaresTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LifeSquaresTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C44F3D6F307A1D880085A518 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Package.swift; path = TimeCore/Package.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -48,11 +51,13 @@
 		000000000000000130000000 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
+				C4C91221307A1EE6007F7A86 /* TimeCore in Frameworks */,
 			);
 		};
 		C40D78113072B025004D516A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
+				C4CB560A307A23C200563992 /* TimeCore in Frameworks */,
 			);
 		};
 /* End PBXFrameworksBuildPhase section */
@@ -65,6 +70,7 @@
 				C40D780E307295D5004D516A /* .gitignore */,
 				000000000000000000000010 /* LifeSquares */,
 				C40D78153072B025004D516A /* LifeSquaresTests */,
+				C4D7D1E8307A19F100043F3E /* Frameworks */,
 				000000000000000000000020 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -76,6 +82,14 @@
 				C40D78143072B025004D516A /* LifeSquaresTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		C4D7D1E8307A19F100043F3E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C44F3D6F307A1D880085A518 /* Package.swift */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -96,6 +110,9 @@
 				C4D7D1E2307A0EEB00043F3E /* .github */,
 			);
 			name = LifeSquares;
+			packageProductDependencies = (
+				C4C91220307A1EE6007F7A86 /* TimeCore */,
+			);
 			productName = MyApp;
 			productReference = 000000000000000000000120 /* LifeSquares.app */;
 			productType = "com.apple.product-type.application";
@@ -117,6 +134,9 @@
 				C40D78153072B025004D516A /* LifeSquaresTests */,
 			);
 			name = LifeSquaresTests;
+			packageProductDependencies = (
+				C4CB5609307A23C200563992 /* TimeCore */,
+			);
 			productName = LifeSquaresTests;
 			productReference = C40D78143072B025004D516A /* LifeSquaresTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -149,6 +169,9 @@
 			);
 			mainGroup = 000000000000000000000001;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				C44F3D70307A1DBF0085A518 /* XCLocalSwiftPackageReference "TimeCore" */,
+			);
 			preferredProjectObjectVersion = 90;
 			productRefGroup = 000000000000000000000020 /* Products */;
 			projectDirPath = "";
@@ -493,6 +516,26 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		C44F3D70307A1DBF0085A518 /* XCLocalSwiftPackageReference "TimeCore" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = TimeCore;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C4C91220307A1EE6007F7A86 /* TimeCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C44F3D70307A1DBF0085A518 /* XCLocalSwiftPackageReference "TimeCore" */;
+			productName = TimeCore;
+		};
+		C4CB5609307A23C200563992 /* TimeCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C44F3D70307A1DBF0085A518 /* XCLocalSwiftPackageReference "TimeCore" */;
+			productName = TimeCore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 000000000000000000000000 /* Project object */;
 }
