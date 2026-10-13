@@ -22,9 +22,9 @@ struct DateTesterHelper {
         let start = makeDate(year: 2026, month: 10, day: 15, hour: 10, minute: 30, calendar: calendar)
         return start
     }
-    func makeTarget() -> Date {
+    func makeNow() -> Date {
         let calendar = makeCalendar(timeZoneID: "Europe/Moscow")
-        let start = makeDate(year: 2026, month: 10, day: 15, hour: 10, minute: 30, calendar: calendar)
+        let start = makeDate(year: 2026, month: 11, day: 24, hour: 10, minute: 30, calendar: calendar)
         return start
     }
     func makeEnd() -> Date {
