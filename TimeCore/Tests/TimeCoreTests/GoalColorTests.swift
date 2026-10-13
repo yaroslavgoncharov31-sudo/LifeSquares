@@ -1,5 +1,4 @@
 import Testing
-import SwiftData
 @testable import TimeCore
 internal import Foundation
 
