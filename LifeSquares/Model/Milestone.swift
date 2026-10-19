@@ -10,6 +10,11 @@ final class Milestone: Identifiable {
     var weight: Int = 1
     var closedAt: Date? = nil
     var goal: Goal?
+    var statusRaw: String = MilestoneStatus.open.rawValue
+    var status: MilestoneStatus {
+        get { MilestoneStatus(rawValue: statusRaw) ?? .open }
+        set { statusRaw = newValue.rawValue }
+    }
 
     init(title: String, targetDay: Date, weight: Int, closedAt: Date? = nil, calendar: Calendar = .current) {
         self.title = title
