@@ -161,7 +161,7 @@ struct GoalTimelineTests {
     }
 
     @Test func totalDays_acrossSpringForward_countsCalendarDays() {
-        let calendar = helper.makeCalendar(timeZoneID: "Europe/Warsaw")
+        let calendar = helper.makeCalendar(timeZoneID: "Europe/Moscow")
         let start = helper.makeDate(year: 2027, month: 3, day: 27, hour: 0, minute: 0, calendar: calendar)
         let end = helper.makeDate(year: 2027, month: 3, day: 29, hour: 0, minute: 0, calendar: calendar)
         let now = helper.makeDate(year: 2027, month: 3, day: 28, hour: 12, minute: 0, calendar: calendar)
@@ -171,5 +171,20 @@ struct GoalTimelineTests {
         #expect(timeline.elapsedDays == 1)
         #expect(timeline.cellState(at: 1) == .today)
         #expect(timeline.cellState(at: 2) == .future)
+    }
+
+    @Test func daysUntilStart_returnsCorrectValues() {
+        let calendar = helper.makeCalendar(timeZoneID: "Europe/Moscow")
+        let start = helper.makeDate(year: 2026, month: 10, day: 15, hour: 10, minute: 30, calendar: calendar)
+        let end = helper.makeDate(year: 2026, month: 10, day: 25, hour: 10, minute: 30, calendar: calendar)
+        var now = helper.makeDate(year: 2026, month: 10, day: 10, hour: 10, minute: 30, calendar: calendar)
+        let timeline = GoalTimeline(start: start, end: end, now: now, calendar: calendar)
+
+        #expect(timeline.daysUntilStart == 5)
+
+        now = helper.makeDate(year: 2026, month: 10, day: 16, hour: 10, minute: 30, calendar: calendar)
+        let timeline1 = GoalTimeline(start: start, end: end, now: now, calendar: calendar)
+
+        #expect(timeline1.daysUntilStart == nil)
     }
 }

@@ -1,9 +1,10 @@
 public import Foundation
 
+public enum CellState: Equatable, Sendable {
+    case past, today, future
+}
+
 public struct GoalTimeline: Equatable, Sendable {
-    public enum CellState: Equatable, Sendable {
-        case past, today, future
-    }
 
     public var start: Date
     public var end: Date
@@ -24,6 +25,10 @@ public struct GoalTimeline: Equatable, Sendable {
         self.calendar = calendar
     }
 
+    public var daysUntilStart: Int? {
+        today < start ? calendar.dateComponents([.day], from: today, to: start).day : nil
+    }
+
     public var elapsedDays: Int {
         if totalDays == 0 {
             return 0
@@ -34,6 +39,14 @@ public struct GoalTimeline: Equatable, Sendable {
             return min(days, totalDays)
         }
     }
+    public func index(of date: Date) -> Int? {
+        let normalizedDate = calendar.startOfDay(for: date)
+        guard let days = calendar.dateComponents([.day], from: start, to: normalizedDate).day,
+              (0..<totalDays).contains(days)
+                else { return nil }
+        return days
+    }
+
     public func cellState(at index: Int) -> CellState? {
         guard index < totalDays && index >= 0 else { return nil }
         guard let day = calendar.date(byAdding: .day, value: index, to: start) else { return nil }
