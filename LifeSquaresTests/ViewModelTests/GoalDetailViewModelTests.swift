@@ -125,7 +125,7 @@ struct GoalDetailViewModelTests {
         #expect(vm.workingDayText == "5/9")
     }
 
-    @Test func forecastText_allMilestonesOpen_returnsCorrectValues() {
+    @Test func forecast_allMilestonesOpen_returnsCorrectValues() {
         let calendar = helper.makeCalendar(timeZoneID: "Europe/Warsaw")
         let now = helper.makeDate(year: 2026, month: 10, day: 19, hour: 10, minute: 30, calendar: calendar)
         let offDay = helper.makeDate(year: 2026, month: 10, day: 14, hour: 10, minute: 30, calendar: calendar)
@@ -151,10 +151,11 @@ struct GoalDetailViewModelTests {
         m4.goal = goal
         let vm = GoalDetailView.ViewModel(goal: goal, calendar: calendar, now: { now })
 
-        #expect(vm.forecastText == "Not enough data for forecast yet")
+        #expect(vm.forecastValue == "-")
+        #expect(vm.forecastLabel == "not enough data")
     }
 
-    @Test func forecastText_allMilestonesClosed_returnsCorrectValues() throws {
+    @Test func forecast_allMilestonesClosed_returnsCorrectValues() throws {
         let calendar = helper.makeCalendar(timeZoneID: "Europe/Warsaw")
         let now = helper.makeDate(year: 2026, month: 10, day: 19, hour: 10, minute: 30, calendar: calendar)
         let offDay = helper.makeDate(year: 2026, month: 10, day: 14, hour: 10, minute: 30, calendar: calendar)
@@ -184,10 +185,11 @@ struct GoalDetailViewModelTests {
         m4.status = .closed
         let vm = GoalDetailView.ViewModel(goal: goal, calendar: calendar, now: { now })
 
-        #expect(vm.forecastText == "You have closed all milestones")
+        #expect(vm.forecastValue == "✓")
+        #expect(vm.forecastLabel == "all milestones closed")
     }
 
-    @Test func forecastText_halfMilestonesClosed_returnsCorrectValues() throws {
+    @Test func forecast_halfMilestonesClosed_returnsCorrectValues() throws {
         let calendar = helper.makeCalendar(timeZoneID: "Europe/Warsaw")
         let now = helper.makeDate(year: 2026, month: 10, day: 19, hour: 10, minute: 30, calendar: calendar)
         let offDay = helper.makeDate(year: 2026, month: 10, day: 14, hour: 10, minute: 30, calendar: calendar)
@@ -215,7 +217,8 @@ struct GoalDetailViewModelTests {
         m2.status = .closed
         let vm = GoalDetailView.ViewModel(goal: goal, calendar: calendar, now: { now })
 
-        #expect(vm.forecastText == "At current pace: ~4 working days for remaining milestones, 5 left")
+        #expect(vm.forecastValue == "~4")
+        #expect(vm.forecastLabel == "needed at this pace")
     }
 
     @Test(arguments:[
