@@ -54,7 +54,8 @@ struct GoalDetailView: View {
                 leftValue: viewModel.workingDayText,
                 leftLabel: "Working days left",
                 rightValue: viewModel.forecastValue,
-                rightLabel: viewModel.forecastLabel
+                rightLabel: viewModel.forecastLabel,
+                style: .secondary
             )
         }
     }
@@ -64,7 +65,8 @@ struct GoalDetailView: View {
                 leftValue: viewModel.dayText,
                 leftLabel: "Days passed",
                 rightValue: viewModel.milestoneText,
-                rightLabel: viewModel.milestoneLabelText ?? ""
+                rightLabel: viewModel.milestoneLabelText ?? "",
+                style: .primary
             )
         }
         .frame(maxWidth: .infinity)

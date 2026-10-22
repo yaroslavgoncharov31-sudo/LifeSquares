@@ -7,7 +7,7 @@ struct InsightCard: View {
     let leftLabel: String
     let rightValue: String
     let rightLabel: String
-    let style: Style = .secondary
+    var style: CardStyle
 
     private var valueFont: Font { style == .primary ? .largeTitle : .title3.weight(.semibold) }
     private var labelFont: Font { style == .primary ? .footnote : .caption }
@@ -35,5 +35,5 @@ struct InsightCard: View {
 
 
 #Preview {
-    InsightCard(leftValue: "45/180", leftLabel: "qweety", rightValue: "150", rightLabel: "qewrty")
+    InsightCard(leftValue: "45/180", leftLabel: "qweety", rightValue: "150", rightLabel: "qewrty", style: .secondary)
 }

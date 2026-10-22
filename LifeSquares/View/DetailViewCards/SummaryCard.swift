@@ -1,14 +1,11 @@
 import TimeCore
 import SwiftUI
-
-enum Style { case primary, secondary }
-
 struct SummaryCard: View {
     let leftValue: String
     let leftLabel: String
     let rightValue: String
     let rightLabel: String
-    let style: Style = .primary
+    var style: CardStyle
 
     private var valueFont: Font { style == .primary ? .largeTitle : .title3.weight(.semibold) }
     private var labelFont: Font { style == .primary ? .footnote : .caption }
@@ -35,5 +32,5 @@ struct SummaryCard: View {
 }
 
 #Preview {
-    SummaryCard(leftValue: "45/180", leftLabel: "days passed", rightValue: "4/6", rightLabel: "milestones closed")
+    SummaryCard(leftValue: "45/180", leftLabel: "days passed", rightValue: "4/6", rightLabel: "milestones closed", style: .primary)
 }
