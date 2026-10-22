@@ -13,30 +13,54 @@ extension GoalDetailView {
         private(set) var snapshot: GoalSnapshot
         private(set) var cells: [DayCellModel]
 
+        var milestones: [Milestone] {
+            (goal.milestones ?? []).sorted { $0.targetDay > $1.targetDay }
+        }
+
         var dayText: String {
             let t = snapshot.timeline
             let passed = min(t.elapsedDays + 1, t.totalDays)
             if let days = t.daysUntilStart { return "Starting in \(days) days"}
             return  "\(passed)/\(t.totalDays)"
         }
+        var milestoneLabelText: String? {
+            if snapshot.progress.total == 0 {
+                return nil
+            } else {
+                return "Milestones closed"
+            }
+        }
+        
         var milestoneText: String {
             guard snapshot.progress.total > 0 else { return "No milestones" }
             return "\(snapshot.progress.closed)/\(snapshot.progress.total)"
         }
+        
         var workingDayText: String { "\(snapshot.availability.remainingAvailable)/\(snapshot.availability.totalAvailable)" }
+
         var gridAccessibilityText: String {
             let t = snapshot.timeline
             if let days = t.daysUntilStart { return "Starting in \(days) days"}
             return "Total days \(t.totalDays), passed \(min(t.elapsedDays + 1, t.totalDays))"
         }
-        var forecastText: String {
+        var forecastValue: String {
             switch snapshot.forecast {
             case .notEnoughData:
-                "Not enough data for forecast yet"
+                "-"
             case .completed:
-                "You have closed all milestones"
+                "✓"
+            case .projected(let days):
+                "~\(days)"
+            }
+        }
+        var forecastLabel: String {
+            switch snapshot.forecast {
+            case .notEnoughData:
+                "not enough data"
+            case .completed:
+                "all milestones closed"
             case .projected(let workingDaysNeeded):
-                "At current pace: ~\(workingDaysNeeded) working days for remaining milestones, \(snapshot.availability.remainingAvailable) left"
+                "needed at this pace"
             }
         }
 
@@ -69,6 +93,13 @@ extension GoalDetailView {
             (0..<snapshot.timeline.totalDays).compactMap {
                 DayCellModel.make(index: $0, snapshot: snapshot)
             }
+        }
+        func subtitle(for m: Milestone) -> String {
+            var parts = ["Day \(snapshot.timeline.index(of: m.targetDay) ?? 0)", m.targetDay.formatted(date: .abbreviated, time: .omitted)]
+            if let closedAt = m.closedAt {
+                parts.append("closed \(closedAt.formatted(date: .abbreviated, time: .omitted))")
+            }
+            return parts.joined(separator: " · ")
         }
     }
 }
