@@ -1,6 +1,5 @@
-//
-    
-
+import Foundation
+import TimeCore
 import SwiftUI
 
 struct GoalAddView: View {
