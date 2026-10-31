@@ -5,7 +5,7 @@ import SwiftData
 
 struct GoalAddView: View {
     private enum Field: Hashable {
-        case duration, milestoneTitle, goalTitle
+        case goalTitle, duration, milestoneTitle
     }
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var context
@@ -78,6 +78,9 @@ struct GoalAddView: View {
             if viewModel.validationIssues.contains(.durationOutOfRange) {
                 Text("From 1 to 3650 days")
             }
+        }
+        .onChange(of: viewModel.durationDays) { _, new in
+            if Int(durationText) != new { durationText = String(new) }
         }
     }
     private var colorSection: some View {
@@ -159,7 +162,7 @@ struct GoalAddView: View {
     }
     private var milestoneSection: some View {
         Section {
-            ForEach(viewModel.milestones, id: \.self) { m in
+            ForEach(viewModel.milestones) { m in
                 LabeledContent(m.title, value: "day \(m.dayNumber)")
             }
             .onDelete { indexSet in
@@ -224,7 +227,7 @@ struct GoalAddView: View {
         .toolbar {
             ToolbarItemGroup(placement: .keyboard) {
                 Spacer()
-                Button("Done") { focus = nil }
+                Button { focus = nil } label: { Image(systemName: "checkmark") }
             }
         }
         .scrollBounceBehavior(.basedOnSize)
