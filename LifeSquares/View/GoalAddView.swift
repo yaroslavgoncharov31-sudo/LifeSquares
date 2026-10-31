@@ -2,6 +2,7 @@ import Foundation
 import TimeCore
 import SwiftUI
 import SwiftData
+import UIKit
 
 struct GoalAddView: View {
     private enum Field: Hashable {
@@ -215,9 +216,10 @@ struct GoalAddView: View {
             }
             ToolbarItem(placement: .confirmationAction) {
                 Button(viewModel.isEditing ? "Save" : "Create") { save() }
-                    .disabled(!viewModel.isValid)
+                .disabled(!viewModel.isValid)
             }
         }
+        .sensoryFeedback(.error, trigger: saveError != nil) { _, hasError in hasError }
         .alert("Couldn't save", isPresented: .constant(saveError != nil), presenting: saveError) { _ in
             Button("OK") { saveError = nil
             }
@@ -235,6 +237,7 @@ struct GoalAddView: View {
     private func save() {
         do {
             try viewModel.save(in: context)
+            UINotificationFeedbackGenerator().notificationOccurred(.success)
             dismiss()
         } catch let error as GoalFormError {
             saveError = error
