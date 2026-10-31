@@ -3,7 +3,7 @@ import SwiftData
 import TimeCore
 
 @Model
-final class Milestone: Identifiable {
+final class Milestone: Identifiable, Hashable {
     var id: UUID = UUID()
     var title: String = ""
     var targetDay: Date = Date.now
