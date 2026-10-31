@@ -28,7 +28,7 @@ struct GoalDetailView: View {
     }
     private var milestoneSection: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text("Milestones · \(viewModel.milestoneText)")
+            Text("Milestones · \(viewModel.snapshot.milestoneText)")
                 .padding(6)
                 .font(.footnote).textCase(.uppercase).foregroundStyle(.secondary)
             if viewModel.milestones.isEmpty {
@@ -62,9 +62,9 @@ struct GoalDetailView: View {
     private var summary: some View {
         HStack {
             SummaryCard(
-                leftValue: viewModel.dayText,
+                leftValue: viewModel.snapshot.dayText,
                 leftLabel: "Days passed",
-                rightValue: viewModel.milestoneText,
+                rightValue: viewModel.snapshot.milestoneText,
                 rightLabel: viewModel.milestoneLabelText ?? "",
                 style: .primary
             )

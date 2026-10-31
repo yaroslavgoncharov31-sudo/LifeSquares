@@ -16,13 +16,6 @@ extension GoalDetailView {
         var milestones: [Milestone] {
             (goal.milestones ?? []).sorted { $0.targetDay > $1.targetDay }
         }
-
-        var dayText: String {
-            let t = snapshot.timeline
-            let passed = min(t.elapsedDays + 1, t.totalDays)
-            if let days = t.daysUntilStart { return "Starting in \(days) days"}
-            return  "\(passed)/\(t.totalDays)"
-        }
         var milestoneLabelText: String? {
             if snapshot.progress.total == 0 {
                 return nil
@@ -30,12 +23,6 @@ extension GoalDetailView {
                 return "Milestones closed"
             }
         }
-        
-        var milestoneText: String {
-            guard snapshot.progress.total > 0 else { return "No milestones" }
-            return "\(snapshot.progress.closed)/\(snapshot.progress.total)"
-        }
-        
         var workingDayText: String { "\(snapshot.availability.remainingAvailable)/\(snapshot.availability.totalAvailable)" }
 
         var gridAccessibilityText: String {
