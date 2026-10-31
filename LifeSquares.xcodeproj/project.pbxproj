@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C40D780F307295D5004D516A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = C40D780E307295D5004D516A /* .gitignore */; };
+		C458E38B3095D5C000795D7D /* Numerics in Frameworks */ = {isa = PBXBuildFile; productRef = C458E38A3095D5C000795D7D /* Numerics */; };
 		C4C91221307A1EE6007F7A86 /* TimeCore in Frameworks */ = {isa = PBXBuildFile; productRef = C4C91220307A1EE6007F7A86 /* TimeCore */; };
 		C4CB560A307A23C200563992 /* TimeCore in Frameworks */ = {isa = PBXBuildFile; productRef = C4CB5609307A23C200563992 /* TimeCore */; };
 /* End PBXBuildFile section */
@@ -57,6 +58,7 @@
 		C40D78113072B025004D516A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
+				C458E38B3095D5C000795D7D /* Numerics in Frameworks */,
 				C4CB560A307A23C200563992 /* TimeCore in Frameworks */,
 			);
 		};
@@ -136,6 +138,7 @@
 			name = LifeSquaresTests;
 			packageProductDependencies = (
 				C4CB5609307A23C200563992 /* TimeCore */,
+				C458E38A3095D5C000795D7D /* Numerics */,
 			);
 			productName = LifeSquaresTests;
 			productReference = C40D78143072B025004D516A /* LifeSquaresTests.xctest */;
@@ -171,6 +174,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				C44F3D70307A1DBF0085A518 /* XCLocalSwiftPackageReference "TimeCore" */,
+				C449D50A3095D444004E8A87 /* XCRemoteSwiftPackageReference "swift-numerics" */,
 			);
 			preferredProjectObjectVersion = 90;
 			productRefGroup = 000000000000000000000020 /* Products */;
@@ -526,7 +530,23 @@
 		};
 /* End XCLocalSwiftPackageReference section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		C449D50A3095D444004E8A87 /* XCRemoteSwiftPackageReference "swift-numerics" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-numerics.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		C458E38A3095D5C000795D7D /* Numerics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C449D50A3095D444004E8A87 /* XCRemoteSwiftPackageReference "swift-numerics" */;
+			productName = Numerics;
+		};
 		C4C91220307A1EE6007F7A86 /* TimeCore */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C44F3D70307A1DBF0085A518 /* XCLocalSwiftPackageReference "TimeCore" */;
