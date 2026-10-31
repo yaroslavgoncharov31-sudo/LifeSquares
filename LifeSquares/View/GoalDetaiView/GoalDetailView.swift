@@ -1,48 +1,65 @@
 import SwiftUI
 import Foundation
 import TimeCore
+import SwiftData
 
 struct GoalDetailView: View {
 
+    @Environment(\.modelContext) var context
+    @Environment(\.dismiss) var dismiss
+    @State private var showEdit = false
+    @State private var showDeleteConfirmation = false
+    @State private var hapticTrigger = false
     @State private var viewModel: ViewModel
+
 
     init(goal: Goal, calendar: Calendar = .autoupdatingCurrent, now: @escaping () -> Date = Date.init) {
         _viewModel = State(initialValue: ViewModel(goal: goal, calendar: calendar, now: now))
     }
     private func milestoneRow(_ m: Milestone) -> some View {
-        HStack(spacing: 12) {
-            Text(m.title)
-                .font(.headline)
+        let isClosed = m.status == .closed
+        return HStack(spacing: 12) {
+            ZStack(alignment: .leading) {
+                Text(m.title)
+                    .font(m.status == .closed ? .subheadline : .headline)
+                    .foregroundStyle(m.status == .closed ? .secondary : .primary)
+                Rectangle()
+                    .frame(height: 2)
+                    .foregroundColor(.gray.opacity(0.5))
+                    .scaleEffect(x: isClosed ? 1 : 0, anchor: .leading)
+            }
+            .animation(.easeInOut(duration: 0.3), value: isClosed)
             Spacer()
             Button {
                 withAnimation(.snappy) { try? viewModel.toggle(m) }
+                hapticTrigger.toggle()
             } label: {
                 Image(systemName: m.status == .closed ? "checkmark.circle.fill" : "circle")
                     .font(.title2)
                     .foregroundStyle(m.status == .closed ? viewModel.goal.color.color : .secondary)
                     .contentTransition(.symbolEffect(.replace))
             }
+            .sensoryFeedback(.impact, trigger: hapticTrigger)
             .buttonStyle(.plain)
             .accessibilityLabel(m.status == .closed ? "Reopen \(m.title)" : "Close \(m.title)")
         }
     }
     private var milestoneSection: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text("Milestones · \(viewModel.snapshot.milestoneText)")
-                .padding(6)
-                .font(.footnote).textCase(.uppercase).foregroundStyle(.secondary)
             if viewModel.milestones.isEmpty {
-                Text("No milestones yet")
+                Text("Milestones · \(viewModel.snapshot.milestoneText)")
+                    .padding(6)
+                    .font(.footnote).textCase(.uppercase).foregroundStyle(.secondary)
             } else {
                 VStack {
                     ForEach(viewModel.milestones) { m in
                         milestoneRow(m)
                         if m.id != viewModel.milestones.last?.id {
-                            Divider().padding(.leading, 40)
+                            Divider().padding(.leading, 20)
                         }
                     }
                 }
-                .padding(8)
+                .padding(12)
                 .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 16))
             }
         }
@@ -76,12 +93,44 @@ struct GoalDetailView: View {
             summary
             insight
             VStack(alignment: .leading, spacing: 20) {
-                DayGridView(cells: viewModel.cells, color: viewModel.goal.color, accessibilityText: viewModel.gridAccessibilityText)
+                DayGridView(cells: (viewModel.isGridExpanded ? viewModel.cells : viewModel.visibleCells), color: viewModel.goal.color, accessibilityText: viewModel.gridAccessibilityText)
                     .padding(10)
             }
             milestoneSection
         }
+        .toolbar {
+            ToolbarItemGroup {
+                Button {
+                    withAnimation(.snappy) { viewModel.isGridExpanded.toggle() }
+                } label: {
+                    Image(systemName: viewModel.isGridExpanded ? "rectangle.compress.vertical"
+                          : "rectangle.expand.vertical")
+                }
+                .accessibilityLabel(viewModel.isGridExpanded ? "Collapse days" : "Show all days")
+
+                Menu {
+                    Button("Edit", systemImage: "pencil") { showEdit = true }
+                    Button("Delete", systemImage: "trash", role: .destructive) { showDeleteConfirmation = true }
+                } label: {
+                    Image(systemName: "ellipsis")
+                }
+
+            }
+        }
+        .sheet(isPresented: $showEdit, onDismiss: { viewModel.refresh() }) {
+            NavigationStack { GoalAddView(goal: viewModel.goal) }
+        }
+        .alert("Delete \(viewModel.goal.title)?", isPresented: $showDeleteConfirmation) {
+            Button("Delete", role: .destructive) { deleteGoal() }
+        } message: {
+            Text("The goal and all it's milestones will be removed. This action can't be undone")
+        }
+        .sensoryFeedback(.warning, trigger: showDeleteConfirmation) { _, isShown in isShown }
         .background(Color(.systemGroupedBackground))
+    }
+    private func deleteGoal() {
+        try? viewModel.deleteGoal()
+        dismiss()
     }
 }
 

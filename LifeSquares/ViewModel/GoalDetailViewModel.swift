@@ -12,9 +12,18 @@ extension GoalDetailView {
 
         private(set) var snapshot: GoalSnapshot
         private(set) var cells: [DayCellModel]
-
+        var isGridExpanded: Bool = true
+        var visibleCells: [DayCellModel] {
+            guard !isGridExpanded else { return cells }
+            let columns = 10
+            let todayRow = (snapshot.todayIndex ?? snapshot.timeline.elapsedDays) / columns
+            let firstRow = max(0, todayRow - 1)
+            let start = firstRow * columns
+            let end = min(cells.count, start + columns * 3)
+            return Array(cells[start...end])
+        }
         var milestones: [Milestone] {
-            (goal.milestones ?? []).sorted { $0.targetDay > $1.targetDay }
+            (goal.milestones ?? []).sorted { $0.targetDay < $1.targetDay }
         }
         var milestoneLabelText: String? {
             if snapshot.progress.total == 0 {
@@ -46,7 +55,7 @@ extension GoalDetailView {
                 "not enough data"
             case .completed:
                 "all milestones closed"
-            case .projected(let workingDaysNeeded):
+            case .projected:
                 "needed at this pace"
             }
         }
@@ -75,6 +84,11 @@ extension GoalDetailView {
         func refresh() {
             snapshot = goal.snapshot(now: now(), calendar: calendar)
             cells = Self.makeCells(from: snapshot)
+        }
+        func deleteGoal() throws {
+            let context = goal.modelContext
+            context?.delete(goal)
+            try context?.save()
         }
         private static func makeCells(from snapshot: GoalSnapshot) -> [DayCellModel] {
             (0..<snapshot.timeline.totalDays).compactMap {
