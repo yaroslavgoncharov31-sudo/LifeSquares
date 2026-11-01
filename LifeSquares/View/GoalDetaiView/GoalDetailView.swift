@@ -98,6 +98,7 @@ struct GoalDetailView: View {
             }
             milestoneSection
         }
+        .navigationTitle(viewModel.goal.title)
         .toolbar {
             ToolbarItemGroup {
                 Button {
