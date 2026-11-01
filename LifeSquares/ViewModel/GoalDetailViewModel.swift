@@ -20,7 +20,8 @@ extension GoalDetailView {
             let firstRow = max(0, todayRow - 1)
             let start = firstRow * columns
             let end = min(cells.count, start + columns * 3)
-            return Array(cells[start...end])
+            guard start < end else { return cells }
+            return Array(cells[start..<end])
         }
         var milestones: [Milestone] {
             (goal.milestones ?? []).sorted { $0.targetDay < $1.targetDay }
