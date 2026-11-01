@@ -415,9 +415,9 @@ struct GoalAddViewModelTests {
             offDays: [helper.makeDate(year: 2026, month: 10, day: 13, hour: 10, minute: 30, calendar: calendar)],
             calendar: calendar
         )
-        let m1 = Milestone(title: "Test1", targetDay: helper.makeDate(year: 2026, month: 10, day: 14, hour: 10, minute: 30, calendar: calendar), weight: 1, calendar: calendar)
-        let m3 = Milestone(title: "Test3", targetDay: helper.makeDate(year: 2026, month: 10, day: 16, hour: 10, minute: 30, calendar: calendar), weight: 3, calendar: calendar)
-        let m2 = Milestone(title: "Test2", targetDay: helper.makeDate(year: 2026, month: 10, day: 15, hour: 10, minute: 30, calendar: calendar), weight: 2, calendar: calendar)
+        let m1 = Milestone(title: "Test1", targetDay: helper.makeDate(year: 2026, month: 10, day: 14, hour: 10, minute: 30, calendar: calendar), calendar: calendar)
+        let m3 = Milestone(title: "Test3", targetDay: helper.makeDate(year: 2026, month: 10, day: 16, hour: 10, minute: 30, calendar: calendar), calendar: calendar)
+        let m2 = Milestone(title: "Test2", targetDay: helper.makeDate(year: 2026, month: 10, day: 15, hour: 10, minute: 30, calendar: calendar), calendar: calendar)
         m1.goal = goal
         m3.goal = goal
         m2.goal = goal
@@ -448,7 +448,7 @@ struct GoalAddViewModelTests {
         context.insert(goal)
         for (title, day) in [("Test1", 14), ("Test2", 15), ("Test3", 16)] {
             let target = helper.makeDate(year: 2026, month: 10, day: day, hour: 10, minute: 30, calendar: calendar)
-            let milestone = Milestone(title: title, targetDay: target, weight: 1, calendar: calendar)
+            let milestone = Milestone(title: title, targetDay: target, calendar: calendar)
             context.insert(milestone)
             milestone.goal = goal
         }

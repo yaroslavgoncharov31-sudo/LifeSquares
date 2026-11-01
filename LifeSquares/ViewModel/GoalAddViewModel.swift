@@ -176,7 +176,7 @@ extension GoalAddView {
                     existing.title = draft.title
                     existing.targetDay = calendar.startOfDay(for: target)
                 } else {
-                    let milestone = Milestone(title: draft.title, targetDay: target, weight: 1, calendar: calendar)
+                    let milestone = Milestone(title: draft.title, targetDay: target, calendar: calendar)
                     context.insert(milestone)
                     milestone.goal = goal
                 }

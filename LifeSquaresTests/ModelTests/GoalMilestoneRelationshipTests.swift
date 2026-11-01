@@ -23,7 +23,7 @@ struct GoalMilestoneRelationshipTests {
         let calendar = helper.makeCalendar(timeZoneID: "Europe/Moscow")
 
         let goal = Goal(title: "TestTitle", startDay: start, endDay: end, color: .blue, offWeekdays: [.saturday, .sunday], offDays: [], calendar: calendar)
-        let m1 = Milestone(title: "TestM1", targetDay: start, weight: 1, calendar: calendar)
+        let m1 = Milestone(title: "TestM1", targetDay: start, calendar: calendar)
         context.insert(goal)
         context.insert(m1)
         m1.goal = goal
@@ -40,8 +40,8 @@ struct GoalMilestoneRelationshipTests {
         let calendar = helper.makeCalendar(timeZoneID: "Europe/Moscow")
 
         let goal = Goal(title: "TestTitle", startDay: start, endDay: end, color: .blue, offWeekdays: [.saturday, .sunday], offDays: [], calendar: calendar)
-        let m1 = Milestone(title: "TestM1", targetDay: start, weight: 1, calendar: calendar)
-        let m2 = Milestone(title: "TestM2", targetDay: end, weight: 2, calendar: calendar)
+        let m1 = Milestone(title: "TestM1", targetDay: start, calendar: calendar)
+        let m2 = Milestone(title: "TestM2", targetDay: end, calendar: calendar)
         m1.goal = goal
         m2.goal = goal
 
@@ -68,8 +68,8 @@ struct GoalMilestoneRelationshipTests {
         let calendar = helper.makeCalendar(timeZoneID: "Europe/Moscow")
 
         let goal = Goal(title: "TestTitle", startDay: start, endDay: end, color: .blue, offWeekdays: [.saturday, .sunday], offDays: [], calendar: calendar)
-        let m1 = Milestone(title: "TestM1", targetDay: start, weight: 1, calendar: calendar)
-        let m2 = Milestone(title: "TestM2", targetDay: end, weight: 2, calendar: calendar)
+        let m1 = Milestone(title: "TestM1", targetDay: start, calendar: calendar)
+        let m2 = Milestone(title: "TestM2", targetDay: end, calendar: calendar)
 
         m1.goal = goal
         m2.goal = goal

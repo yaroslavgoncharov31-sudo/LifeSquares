@@ -13,7 +13,7 @@ struct DayCellModel_make {
         let targetDay = helper.makeDate(year: 2026, month: 10, day: 21, hour: 10, minute: 30, calendar: calendar)
         let now = helper.makeDate(year: 2026, month: 10, day: 19, hour: 10, minute: 30, calendar: calendar)
         let goal = helper.makeData()
-        let m = Milestone(title: "testM", targetDay: targetDay, weight: 1)
+        let m = Milestone(title: "testM", targetDay: targetDay)
         m.goal = goal
         let snapshot = goal.snapshot(now: now, calendar: calendar)
 
@@ -29,7 +29,7 @@ struct DayCellModel_make {
         let targetDay = helper.makeDate(year: 2026, month: 10, day: 21, hour: 10, minute: 30, calendar: calendar)
         let now = helper.makeDate(year: 2026, month: 10, day: 19, hour: 10, minute: 30, calendar: calendar)
         let goal = helper.makeData()
-        let m = Milestone(title: "testM", targetDay: targetDay, weight: 1)
+        let m = Milestone(title: "testM", targetDay: targetDay)
         m.goal = goal
         let snapshot = goal.snapshot(now: now, calendar: calendar)
 
@@ -45,7 +45,7 @@ struct DayCellModel_make {
         let targetDay = helper.makeDate(year: 2026, month: 10, day: 21, hour: 10, minute: 30, calendar: calendar)
         let now = helper.makeDate(year: 2026, month: 10, day: 19, hour: 10, minute: 30, calendar: calendar)
         let goal = helper.makeData()
-        let m = Milestone(title: "testM", targetDay: targetDay, weight: 1)
+        let m = Milestone(title: "testM", targetDay: targetDay)
         m.goal = goal
         let snapshot = goal.snapshot(now: now, calendar: calendar)
 
@@ -61,7 +61,7 @@ struct DayCellModel_make {
         let targetDay = helper.makeDate(year: 2026, month: 10, day: 21, hour: 10, minute: 30, calendar: calendar)
         let now = helper.makeDate(year: 2026, month: 10, day: 19, hour: 10, minute: 30, calendar: calendar)
         let goal = helper.makeData()
-        let m = Milestone(title: "testM", targetDay: targetDay, weight: 1)
+        let m = Milestone(title: "testM", targetDay: targetDay)
         m.goal = goal
         let snapshot = goal.snapshot(now: now, calendar: calendar)
 
@@ -77,7 +77,7 @@ struct DayCellModel_make {
         let targetDay = helper.makeDate(year: 2026, month: 10, day: 21, hour: 10, minute: 30, calendar: calendar)
         let now = helper.makeDate(year: 2026, month: 10, day: 19, hour: 10, minute: 30, calendar: calendar)
         let goal = helper.makeData()
-        let m = Milestone(title: "testM", targetDay: targetDay, weight: 1)
+        let m = Milestone(title: "testM", targetDay: targetDay)
         m.goal = goal
         let snapshot = goal.snapshot(now: now, calendar: calendar)
 
@@ -93,7 +93,7 @@ struct DayCellModel_make {
         let targetDay = helper.makeDate(year: 2026, month: 10, day: 21, hour: 10, minute: 30, calendar: calendar)
         let now = helper.makeDate(year: 2026, month: 10, day: 19, hour: 10, minute: 30, calendar: calendar)
         let goal = helper.makeData()
-        let m = Milestone(title: "testM", targetDay: targetDay, weight: 1)
+        let m = Milestone(title: "testM", targetDay: targetDay)
         m.goal = goal
         let snapshot = goal.snapshot(now: now, calendar: calendar)
 
@@ -109,7 +109,7 @@ struct DayCellModel_make {
         let targetDay = helper.makeDate(year: 2026, month: 10, day: 21, hour: 10, minute: 30, calendar: calendar)
         let now = helper.makeDate(year: 2026, month: 10, day: 19, hour: 10, minute: 30, calendar: calendar)
         let goal = helper.makeData()
-        let m = Milestone(title: "testM", targetDay: targetDay, weight: 1)
+        let m = Milestone(title: "testM", targetDay: targetDay)
         m.goal = goal
         let snapshot = goal.snapshot(now: now, calendar: calendar)
 

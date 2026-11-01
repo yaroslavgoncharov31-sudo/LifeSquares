@@ -7,7 +7,6 @@ final class Milestone: Identifiable, Hashable {
     var id: UUID = UUID()
     var title: String = ""
     var targetDay: Date = Date.now
-    var weight: Int = 1
     var closedAt: Date? = nil
     var goal: Goal?
     var statusRaw: String = MilestoneStatus.open.rawValue
@@ -16,10 +15,9 @@ final class Milestone: Identifiable, Hashable {
         set { statusRaw = newValue.rawValue }
     }
 
-    init(title: String, targetDay: Date, weight: Int, closedAt: Date? = nil, calendar: Calendar = .current) {
+    init(title: String, targetDay: Date, closedAt: Date? = nil, calendar: Calendar = .current) {
         self.title = title
         self.targetDay = calendar.startOfDay(for: targetDay)
-        self.weight = weight
         self.closedAt = closedAt
     }
 }

@@ -56,8 +56,8 @@ struct LifeSquaresTests {
         let start = helper.makeDate(year: 2026, month: 10, day: 15, hour: 10, minute: 30, calendar: calendar)
         let end = helper.makeDate(year: 2027, month: 10, day: 15, hour: 10, minute: 30, calendar: calendar)
         let goal = Goal(title: "Test", startDay: start, endDay: end, color: .blue, offWeekdays: [.saturday, .sunday], offDays: [], calendar: calendar)
-        let m1 = Milestone(title: "TestM1", targetDay: targetDay1, weight: 1, calendar: calendar)
-        let m2 = Milestone(title: "TestM2", targetDay: targetDay2, weight: 2, calendar: calendar)
+        let m1 = Milestone(title: "TestM1", targetDay: targetDay1, calendar: calendar)
+        let m2 = Milestone(title: "TestM2", targetDay: targetDay2, calendar: calendar)
         m1.goal = goal
         m2.goal = goal
         context.insert(m1)

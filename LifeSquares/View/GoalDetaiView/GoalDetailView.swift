@@ -146,10 +146,10 @@ private func q() -> Goal {
 private func qM(goal: Goal) -> Goal {
     let calendar = Calendar(identifier: .gregorian)
     let start = calendar.date(from: DateComponents(year: 2026, month: 10, day: 15, hour: 10, minute: 30))!
-    let m = Milestone(title: "TEst", targetDay: start, weight: 1)
-    let m1 = Milestone(title: "TEst", targetDay: start, weight: 1)
-    let m2 = Milestone(title: "TEst", targetDay: start, weight: 1)
-    let m3 = Milestone(title: "TEst", targetDay: start, weight: 1)
+    let m = Milestone(title: "TEst", targetDay: start)
+    let m1 = Milestone(title: "TEst", targetDay: start)
+    let m2 = Milestone(title: "TEst", targetDay: start)
+    let m3 = Milestone(title: "TEst", targetDay: start)
     m.goal = goal
     m1.goal = goal
     m2.goal = goal

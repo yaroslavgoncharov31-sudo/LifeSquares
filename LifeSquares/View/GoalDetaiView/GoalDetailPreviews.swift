@@ -52,7 +52,7 @@ enum GoalPreviewFactory {
 
         for spec in milestones {
             let target = calendar.date(byAdding: .day, value: spec.day - 1, to: start)!
-            let milestone = Milestone(title: spec.title, targetDay: target, weight: 1)
+            let milestone = Milestone(title: spec.title, targetDay: target)
             context.insert(milestone)
             milestone.goal = goal
             if spec.closed {

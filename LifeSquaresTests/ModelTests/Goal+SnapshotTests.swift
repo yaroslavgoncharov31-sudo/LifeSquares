@@ -23,10 +23,10 @@ struct Goal_SnapshotTests {
         let end = helper.makeDate(year: 2026, month: 10, day: 25, hour: 10, minute: 30, calendar: calendar)
         let offDay = helper.makeDate(year: 2026, month: 10, day: 14, hour: 10, minute: 30, calendar: calendar)
         let now = helper.makeDate(year: 2026, month: 10, day: 19, hour: 10, minute: 30, calendar: calendar)
-        let m1 = Milestone(title: "Test1", targetDay: helper.makeDate(year: 2026, month: 10, day: 15, hour: 10, minute: 30, calendar: calendar), weight: 1)
-        let m2 = Milestone(title: "Test2", targetDay: helper.makeDate(year: 2026, month: 10, day: 16, hour: 10, minute: 30, calendar: calendar), weight: 2)
-        let m3 = Milestone(title: "Test3", targetDay: helper.makeDate(year: 2026, month: 10, day: 17, hour: 10, minute: 30, calendar: calendar), weight: 2)
-        let m4 = Milestone(title: "Test4", targetDay: helper.makeDate(year: 2026, month: 10, day: 18, hour: 10, minute: 30, calendar: calendar), weight: 3)
+        let m1 = Milestone(title: "Test1", targetDay: helper.makeDate(year: 2026, month: 10, day: 15, hour: 10, minute: 30, calendar: calendar))
+        let m2 = Milestone(title: "Test2", targetDay: helper.makeDate(year: 2026, month: 10, day: 16, hour: 10, minute: 30, calendar: calendar))
+        let m3 = Milestone(title: "Test3", targetDay: helper.makeDate(year: 2026, month: 10, day: 17, hour: 10, minute: 30, calendar: calendar))
+        let m4 = Milestone(title: "Test4", targetDay: helper.makeDate(year: 2026, month: 10, day: 18, hour: 10, minute: 30, calendar: calendar))
         let goal = Goal(title: "TestTitle", startDay: start, endDay: end, color: .slate, offWeekdays: [.saturday, .sunday], offDays: [offDay], calendar: calendar)
         m1.status = .closed
         m2.status = .closed
