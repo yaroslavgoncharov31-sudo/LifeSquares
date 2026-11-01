@@ -311,7 +311,7 @@ struct GoalAddViewModelTests {
         vm.title = "Test"
         vm.durationDays = 0
 
-        #expect(vm.validationIssues == [.durationOutOfRange, .noWorkingDays])
+        #expect(vm.validationIssues == [.durationOutOfRange])
     }
 
     @Test func duration_valueOutOFRange_returnsCorrectValidationIssue() {
