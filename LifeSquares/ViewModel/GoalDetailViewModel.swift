@@ -17,6 +17,10 @@ extension GoalDetailView {
             guard !isGridExpanded else { return cells }
             return Array(cells[snapshot.timeline.visibleRange(size: 30, daysBeforeToday: 9)])
         }
+        var goalRange: ClosedRange<Date>? {
+            guard goal.startDay <= goal.endDay else { return nil }
+            return goal.startDay...goal.endDay
+        }
         var milestones: [Milestone] {
             (goal.milestones ?? []).sorted { $0.targetDay < $1.targetDay }
         }

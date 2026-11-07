@@ -11,6 +11,7 @@ struct GoalDetailView: View {
     @State private var showDeleteConfirmation = false
     @State private var hapticTrigger = false
     @State private var viewModel: ViewModel
+    @FocusState private var isMilestoneFocused: Bool
 
 
     init(goal: Goal, calendar: Calendar = .autoupdatingCurrent, now: @escaping () -> Date = Date.init) {
@@ -21,7 +22,8 @@ struct GoalDetailView: View {
         return HStack(spacing: 12) {
             ZStack(alignment: .leading) {
                 Text(m.title)
-                    .font(m.status == .closed ? .subheadline : .headline)
+                    .lineLimit(1)
+                    .truncationMode(.tail)
                     .foregroundStyle(m.status == .closed ? .secondary : .primary)
                 Rectangle()
                     .frame(height: 2)
@@ -50,11 +52,6 @@ struct GoalDetailView: View {
     }
     private var milestoneSection: some View {
         VStack(alignment: .leading, spacing: 8) {
-            if viewModel.milestones.isEmpty {
-                Text("Milestones · \(viewModel.snapshot.milestoneText)")
-                    .padding(6)
-                    .font(.footnote).textCase(.uppercase).foregroundStyle(.secondary)
-            } else {
                 VStack {
                     ForEach(viewModel.milestones) { m in
                         milestoneRow(m)
@@ -62,10 +59,20 @@ struct GoalDetailView: View {
                             Divider().padding(.leading, 20)
                         }
                     }
+                    if !viewModel.isReadOnly {
+                        if !viewModel.milestones.isEmpty {
+                            Divider()
+                        }
+                        if let range = viewModel.goalRange {
+                            MilestoneInputRow(in: range, isFocused: $isMilestoneFocused) { title, date in
+                                viewModel.goal.addMilestone(title: title, on: date)
+                            }
+                            .buttonStyle(.borderless)
+                        }
+                    }
                 }
                 .padding(12)
                 .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 16))
-            }
         }
     }
 
@@ -103,6 +110,7 @@ struct GoalDetailView: View {
             milestoneSection
         }
         .navigationTitle(viewModel.goal.title)
+        .scrollDismissesKeyboard(.interactively)
         .toolbar {
             ToolbarItemGroup {
                 Button {
@@ -115,7 +123,7 @@ struct GoalDetailView: View {
 
                 Menu {
                     if !viewModel.isReadOnly {
-                        Button("Edit", systemImage: "pencil") { showEdit = true }
+                        Button("Edit", systemImage: "pencil") { showEdit = true; isMilestoneFocused = false }
                     }
                     Button("Delete", systemImage: "trash", role: .destructive) { showDeleteConfirmation = true }
                 } label: {
