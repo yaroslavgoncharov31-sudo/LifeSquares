@@ -30,18 +30,22 @@ struct GoalDetailView: View {
             }
             .animation(.easeInOut(duration: 0.3), value: isClosed)
             Spacer()
-            Button {
-                withAnimation(.snappy) { try? viewModel.toggle(m) }
-                hapticTrigger.toggle()
-            } label: {
+            if viewModel.isReadOnly {
                 Image(systemName: m.status == .closed ? "checkmark.circle.fill" : "circle")
-                    .font(.title2)
-                    .foregroundStyle(m.status == .closed ? viewModel.goal.color.color : .secondary)
-                    .contentTransition(.symbolEffect(.replace))
+            } else {
+                Button {
+                    withAnimation(.snappy) { try? viewModel.toggle(m) }
+                    hapticTrigger.toggle()
+                } label: {
+                    Image(systemName: m.status == .closed ? "checkmark.circle.fill" : "circle")
+                        .font(.title2)
+                        .foregroundStyle(m.status == .closed ? viewModel.goal.color.color : .secondary)
+                        .contentTransition(.symbolEffect(.replace))
+                }
+                .sensoryFeedback(.impact, trigger: hapticTrigger)
+                .buttonStyle(.plain)
+                .accessibilityLabel(m.status == .closed ? "Reopen \(m.title)" : "Close \(m.title)")
             }
-            .sensoryFeedback(.impact, trigger: hapticTrigger)
-            .buttonStyle(.plain)
-            .accessibilityLabel(m.status == .closed ? "Reopen \(m.title)" : "Close \(m.title)")
         }
     }
     private var milestoneSection: some View {
@@ -110,7 +114,9 @@ struct GoalDetailView: View {
                 .accessibilityLabel(viewModel.isGridExpanded ? "Collapse days" : "Show all days")
 
                 Menu {
-                    Button("Edit", systemImage: "pencil") { showEdit = true }
+                    if !viewModel.isReadOnly {
+                        Button("Edit", systemImage: "pencil") { showEdit = true }
+                    }
                     Button("Delete", systemImage: "trash", role: .destructive) { showDeleteConfirmation = true }
                 } label: {
                     Image(systemName: "ellipsis")

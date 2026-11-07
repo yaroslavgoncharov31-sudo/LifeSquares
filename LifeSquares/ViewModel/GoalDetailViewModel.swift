@@ -27,6 +27,7 @@ extension GoalDetailView {
                 return "Milestones closed"
             }
         }
+        var isReadOnly: Bool { snapshot.timeline.isFinished }
         var workingDayText: String { "\(snapshot.availability.remainingAvailable)/\(snapshot.availability.totalAvailable)" }
 
         var gridAccessibilityText: String {
