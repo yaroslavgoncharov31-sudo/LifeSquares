@@ -20,9 +20,6 @@ struct GoalListView: View {
     var body: some View {
         GoalGridView(goals: goals, calendar: calendar, now: now)
         .navigationTitle("Goals")
-        .navigationDestination(for: Goal.self) { goal in
-            GoalDetailView(goal: goal, calendar: calendar)
-        }
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Button("New goal", systemImage: "plus") { showAdd = true }
