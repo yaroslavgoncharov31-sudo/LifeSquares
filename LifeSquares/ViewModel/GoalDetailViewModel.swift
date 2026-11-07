@@ -15,13 +15,7 @@ extension GoalDetailView {
         var isGridExpanded: Bool = true
         var visibleCells: [DayCellModel] {
             guard !isGridExpanded else { return cells }
-            let columns = 10
-            let todayRow = (snapshot.todayIndex ?? snapshot.timeline.elapsedDays) / columns
-            let firstRow = max(0, todayRow - 1)
-            let start = firstRow * columns
-            let end = min(cells.count, start + columns * 3)
-            guard start < end else { return cells }
-            return Array(cells[start..<end])
+            return Array(cells[snapshot.timeline.visibleRange(size: 30, daysBeforeToday: 9)])
         }
         var milestones: [Milestone] {
             (goal.milestones ?? []).sorted { $0.targetDay < $1.targetDay }
