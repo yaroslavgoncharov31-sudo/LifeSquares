@@ -187,4 +187,43 @@ struct GoalTimelineTests {
 
         #expect(timeline1.daysUntilStart == nil)
     }
+    struct Case: Sendable, CustomTestStringConvertible {
+        let name: String
+        let totalDays: Int
+        let offset: Int            
+        var size = 30
+        var before = 9
+        let expected: Range<Int>
+        var testDescription: String { name }
+    }
+
+    static let cases: [Case] = [
+        Case(name: "middle", totalDays: 100, offset: 50,  expected: 41..<71),
+        Case(name: "goal start", totalDays: 100, offset: 3,   expected: 0..<30),
+        Case(name: "start border", totalDays: 100, offset: 9,   expected: 0..<30),
+        Case(name: "right after border", totalDays: 100, offset: 10,  expected: 1..<31),
+        Case(name: "end border", totalDays: 100, offset: 79,  expected: 70..<100),
+        Case(name: "after end border", totalDays: 100, offset: 80,  expected: 70..<100),
+        Case(name: "goal end", totalDays: 100, offset: 95,  expected: 70..<100),
+        Case(name: "before start", totalDays: 100, offset: -5,  expected: 0..<30),
+        Case(name: "after end", totalDays: 100, offset: 120, expected: 70..<100),
+        Case(name: "as window size", totalDays: 30,  offset: 15,  expected: 0..<30),
+        Case(name: "day longer than window", totalDays: 31,  offset: 15,  expected: 1..<31),
+        Case(name: "shorter than window", totalDays: 10,  offset: 4,   expected: 0..<10),
+        Case(name: "zero duration", totalDays: 0,   offset: 0,   expected: 0..<0),
+        Case(name: "other parameters", totalDays: 20,  offset: 10,  size: 5, before: 2, expected: 8..<13),
+    ]
+
+    @Test(arguments: cases)
+    func visibleRange(_ c: Case) {
+        let calendar = helper.makeCalendar(timeZoneID: "Europe/Warsaw")
+
+        let start = calendar.date(from: DateComponents(year: 2026, month: 1, day: 1))!
+        let end = calendar.date(byAdding: .day, value: c.totalDays - 1, to: start)!
+        let now = calendar.date(byAdding: .day, value: c.offset, to: start)!
+
+        let timeline = GoalTimeline(start: start, end: end, now: now, calendar: calendar)
+
+        #expect(timeline.visibleRange(size: c.size, daysBeforeToday: c.before) == c.expected)
+    }
 }

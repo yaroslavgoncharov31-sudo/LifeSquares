@@ -24,6 +24,7 @@ public struct GoalTimeline: Equatable, Sendable {
         self.totalDays = normalizedEnd < normalizedStart ? 0 : days + 1
         self.calendar = calendar
     }
+    public var isFinished: Bool { today > end }
 
     public var daysUntilStart: Int? {
         today < start ? calendar.dateComponents([.day], from: today, to: start).day : nil
@@ -57,5 +58,21 @@ public struct GoalTimeline: Equatable, Sendable {
         } else {
             return .future
         }
+    }
+}
+
+extension GoalTimeline {
+    var anchorIndex: Int {
+        guard totalDays > 0 else { return 0 }
+        return min(elapsedDays, totalDays - 1)
+    }
+
+    public func visibleRange(size: Int, daysBeforeToday: Int) -> Range<Int> {
+        precondition(size > 0 && (0..<size).contains(daysBeforeToday))
+        guard totalDays > size else { return 0..<totalDays }
+
+        let latestStart = totalDays - size
+        let start = max(0, min(anchorIndex - daysBeforeToday, latestStart))
+        return start..<(start + size)
     }
 }

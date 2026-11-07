@@ -11,7 +11,7 @@ public struct GoalSnapshot: Sendable, Equatable {
                 offWeekdays: OffWeekdays, offDays: [Date],
                 milestones: [MilestoneInput]) {
         let timeline = GoalTimeline(start: start, end: end, now: now, calendar: calendar)
-        self.timeline = GoalTimeline(start: start, end: end, now: now, calendar: calendar)
+        self.timeline = timeline
         self.availability = Availability(timeline: timeline, offWeekdays: offWeekdays, offDays: offDays)
         self.progress = MilestoneProgress(statuses: milestones.map(\.status))
         self.forecast = Forecast(progress: progress, availability: availability)
