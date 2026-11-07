@@ -434,7 +434,6 @@ struct GoalAddViewModelTests {
         #expect(vm.milestones.map { $0.existing != nil } == [true, true, true])
     }
 
-    /// Persists a 14-day goal (Oct 12–25) with milestones on Oct 14, 15, 16 (days 3, 4, 5).
     private func makeStoredGoal(calendar: Calendar) throws -> Goal {
         let goal = Goal(
             title: "Test",
