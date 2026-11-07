@@ -147,7 +147,6 @@ struct GoalAddView: View {
                             viewModel.addOffDay(newOffDay)
                         }
                     }
-                    .disabled(viewModel.offDays.last == newOffDay)
                     .buttonStyle(.borderless)
                 } else {
                     Text("Specify duration first")
