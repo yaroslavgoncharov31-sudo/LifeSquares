@@ -19,18 +19,34 @@ struct MilestoneInputRow: View {
     private var trimmed: String { title.trimmingCharacters(in: .whitespacesAndNewlines) }
 
     var body: some View {
-        HStack {
-            TextField("New milestone title", text: $title)
-                .focused(isFocused)
-            DatePicker("", selection: $date, in: range, displayedComponents: .date)
-                .labelsHidden()
-            Button("Add") {
-                onAdd(trimmed, date)
-                title = ""
-                isFocused.wrappedValue = true
+        VStack(alignment: .leading, spacing: 8) {
+            HStack {
+                TextField("New milestone title", text: $title)
+                    .onChange(of: title) { _, new in
+                        if new.count > Milestone.maxTitleLimit {
+                            title = String(new.prefix(Milestone.maxTitleLimit))
+                        }
+                    }
+                    .focused(isFocused)
+                if title.count > Milestone.maxTitleLimit - 10 {
+                    Text("\(title.count) / \(Milestone.maxTitleLimit)")
+                        .font(.caption)
+                        .monospacedDigit()
+                        .foregroundStyle(.secondary)
+                }
             }
-            .buttonStyle(.borderless)
-            .disabled(trimmed.isEmpty)
+                HStack {
+                    DatePicker("Date", selection: $date, in: range, displayedComponents: .date)
+                        .padding(.trailing, 5)
+                    Button("Add") {
+                        onAdd(trimmed, date)
+                        title = ""
+                        isFocused.wrappedValue = true
+                    }
+                    .buttonStyle(.borderless)
+                    .disabled(trimmed.isEmpty)
+                }
+
         }
     }
 }

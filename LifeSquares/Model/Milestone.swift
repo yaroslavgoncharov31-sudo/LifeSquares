@@ -20,4 +20,5 @@ final class Milestone: Identifiable, Hashable {
         self.targetDay = calendar.startOfDay(for: targetDay)
         self.closedAt = closedAt
     }
+    static let maxTitleLimit = 40
 }
