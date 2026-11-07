@@ -8,7 +8,14 @@ import SwiftData
         WindowGroup {
             NavigationStack {
                 GoalListView(now: now, calendar: calendar)
-                    .id(calendar.startOfDay(for: now))
+                    .navigationDestination(for: Goal.self) { goal in
+                        GoalDetailView(goal: goal, calendar: calendar)
+                    }
+                    .navigationDestination(for: Route.self) { route in
+                        switch route {
+                        case .archive: GoalArchiveView(now: now, calendar: calendar)
+                        }
+                    }
             }
             .onReceive(NotificationCenter.default.publisher(for: UIApplication.significantTimeChangeNotification)) { _ in
                 now = Date()

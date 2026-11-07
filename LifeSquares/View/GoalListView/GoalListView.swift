@@ -18,19 +18,7 @@ struct GoalListView: View {
         )
     }
     var body: some View {
-        ScrollView {
-            LazyVGrid(columns: [GridItem(.flexible(), spacing: 12), GridItem(.flexible(), spacing: 12)], spacing: 12) {
-                ForEach(goals) { goal in
-                    NavigationLink(value: goal) {
-                        GoalCard(title: goal.title, color: goal.color, snapshot: goal.snapshot(now: now, calendar: calendar))
-                    }
-                    .buttonStyle(.plain)
-                }
-            }
-            .padding()
-        }
-        .scrollBounceBehavior(.basedOnSize)
-        .background(Color(.systemGroupedBackground))
+        GoalGridView(goals: goals, calendar: calendar, now: now)
         .navigationTitle("Goals")
         .navigationDestination(for: Goal.self) { goal in
             GoalDetailView(goal: goal, calendar: calendar)
@@ -39,6 +27,12 @@ struct GoalListView: View {
             ToolbarItem(placement: .primaryAction) {
                 Button("New goal", systemImage: "plus") { showAdd = true }
             }
+            ToolbarItem(placement: .topBarTrailing) {
+                NavigationLink(value: Route.archive) {
+                    Label("Archive", systemImage: "archivebox")
+                }
+            }
+
         }
         .sheet(isPresented: $showAdd) {
             NavigationStack { GoalAddView() }
