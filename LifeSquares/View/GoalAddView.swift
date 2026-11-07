@@ -13,9 +13,8 @@ struct GoalAddView: View {
     @State private var viewModel: ViewModel
     @State private var saveError: GoalFormError?
     @State private var newOffDay = Date()
-    @State private var newMilestoneDate = Date()
-    @State private var newMilestoneTitle: String = ""
     @State private var durationText: String = ""
+    @FocusState private var isMilestoneFocused: Bool
     @FocusState private var focus: Field?
 
     init(goal: Goal? = nil) {
@@ -139,7 +138,7 @@ struct GoalAddView: View {
                 indexSet.map { viewModel.offDays[$0] }.forEach(viewModel.removeOffDay)
             }
             HStack {
-                if let range = viewModel.offDayRange {
+                if let range = viewModel.goalRange {
                     DatePicker("Date", selection: $newOffDay, in: range, displayedComponents: .date)
                         .labelsHidden()
                     Spacer()
@@ -170,29 +169,16 @@ struct GoalAddView: View {
                 indexSet.map { viewModel.milestones[$0] }.forEach(viewModel.removeMilestone)
             }
             HStack {
-
-                if let range = viewModel.offDayRange {
-                    TextField("New milestone title", text: $newMilestoneTitle)
-                        .focused($focus, equals: .milestoneTitle)
-                    DatePicker("", selection: $newMilestoneDate, in: range, displayedComponents: .date)
-                        .labelsHidden()
-                    Spacer()
-                    Button("Add") {
-                        withAnimation {
-                            viewModel.addMilestone(title: newMilestoneTitle, on: newMilestoneDate)
-                            newMilestoneTitle = ""
-                            focus = .milestoneTitle
-                        }
+                if let range = viewModel.goalRange {
+                    MilestoneInputRow(in: range, isFocused: $isMilestoneFocused) { title, date in
+                        withAnimation { viewModel.addMilestone(title: title, on: date) }
                     }
                     .buttonStyle(.borderless)
-                    .disabled(newMilestoneTitle.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
                 } else {
                     Text("Specify duration first")
                         .foregroundStyle(.primary)
                 }
-
             }
-
         } header: {
             Text("Milestones")
         } footer: {
@@ -209,6 +195,7 @@ struct GoalAddView: View {
             milestoneSection
         }
         .navigationTitle(viewModel.isEditing ? "Edit goal" : "New goal")
+        .interactiveDismissDisabled(viewModel.hasChanges)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .cancellationAction) {
@@ -229,7 +216,7 @@ struct GoalAddView: View {
         .toolbar {
             ToolbarItemGroup(placement: .keyboard) {
                 Spacer()
-                Button { focus = nil } label: { Image(systemName: "checkmark") }
+                Button { focus = nil; isMilestoneFocused = false } label: { Image(systemName: "checkmark") }
             }
         }
         .scrollBounceBehavior(.basedOnSize)

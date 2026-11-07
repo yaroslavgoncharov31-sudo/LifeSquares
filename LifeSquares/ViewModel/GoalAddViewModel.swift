@@ -10,11 +10,28 @@ extension GoalAddView {
         case durationOutOfRange
         case milestoneOutOfRange(MilestoneDraft.ID)
     }
+
+    private struct FormState: Equatable {
+        var title: String
+        var startDay: Date
+        var durationDays: Int
+        var color: GoalColor
+        var offWeekdays: OffWeekdays
+        var offDays: [Date]
+        var milestones: [MilestoneKey]
+    }
+
+    private struct MilestoneKey: Equatable {
+        let title: String
+        let dayNumber: Int
+    }
+
     @MainActor
     @Observable
     final class ViewModel {
         private let calendar: Calendar
         private let editingGoal: Goal?
+        private let initialState: FormState
 
         private init(calendar: Calendar, editingGoal: Goal?, title: String, startDay: Date,
                      durationDays: Int, color: GoalColor, offWeekdays: OffWeekdays,
@@ -31,6 +48,7 @@ extension GoalAddView {
             self.availability = Self.makeAvailability(calendar: calendar, start: startDay,
                                                       durationDays: durationDays,
                                                       offWeekdays: offWeekdays, offDays: offDays)
+            self.initialState = Self.makeState(title: title, startDay: startDay, durationDays: durationDays, color: color, offWeekdays: offWeekdays, offDays: offDays, milestones: milestones)
         }
 
         convenience init(calendar: Calendar = .autoupdatingCurrent, goal: Goal) {
@@ -54,6 +72,13 @@ extension GoalAddView {
                       offWeekdays: [], offDays: [],
                       milestones: [])
         }
+
+        private var currentState: FormState {
+            Self.makeState(title: title, startDay: startDay, durationDays: durationDays,
+                           color: color, offWeekdays: offWeekdays, offDays: offDays,
+                           milestones: milestones)
+        }
+        var hasChanges: Bool { currentState != initialState }
         var isEditing: Bool { editingGoal != nil }
         private var trimmingTitle: String {
             title.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -82,7 +107,7 @@ extension GoalAddView {
             return calendar.startOfDay(for: day)
         }
 
-        var offDayRange: ClosedRange<Date>? {
+        var goalRange: ClosedRange<Date>? {
             guard startDay <= endDay else { return nil }
             return startDay...endDay
         }
@@ -159,6 +184,14 @@ extension GoalAddView {
             availability = Self.makeAvailability(calendar: calendar, start: startDay, durationDays: durationDays, offWeekdays: offWeekdays, offDays: offDays)
         }
 
+        private static func makeState(title: String, startDay: Date, durationDays: Int,
+                                      color: GoalColor, offWeekdays: OffWeekdays,
+                                      offDays: [Date], milestones: [MilestoneDraft]) -> FormState {
+            FormState(title: title, startDay: startDay, durationDays: durationDays,
+                      color: color, offWeekdays: offWeekdays, offDays: offDays,
+                      milestones: milestones.map { MilestoneKey(title: $0.title, dayNumber: $0.dayNumber) })
+        }
+
         private static func makeAvailability(calendar: Calendar, start: Date, durationDays: Int,
                                              offWeekdays: OffWeekdays, offDays: [Date]) -> Availability {
             let end = calendar.date(byAdding: .day, value: max(durationDays, 1) - 1, to: start)!
@@ -204,4 +237,3 @@ extension GoalAddView {
         }
     }
 }
-
