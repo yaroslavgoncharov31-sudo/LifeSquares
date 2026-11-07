@@ -29,7 +29,7 @@ final class Goal: Identifiable {
         self.offWeekdays = offWeekdays
         self.offDays = Set(offDays.map{ calendar.startOfDay(for: $0) }).sorted()
     }
-    func update(title: String, startDay: Date, endDay: Date, color: GoalColor, offWeekday: OffWeekdays, offDays: [Date], calendar: Calendar = .current) {
+    func update(title: String, startDay: Date, endDay: Date, color: GoalColor, offWeekdays: OffWeekdays, offDays: [Date], calendar: Calendar = .current) {
         self.title = title
         self.startDay = calendar.startOfDay(for: startDay)
         self.endDay = calendar.startOfDay(for: endDay)

@@ -176,9 +176,7 @@ extension GoalAddView {
                     existing.title = draft.title
                     existing.targetDay = calendar.startOfDay(for: target)
                 } else {
-                    let milestone = Milestone(title: draft.title, targetDay: target, calendar: calendar)
-                    context.insert(milestone)
-                    milestone.goal = goal
+                    goal.addMilestone(title: draft.title, on: target, calendar: calendar)
                 }
             }
         }
@@ -189,7 +187,7 @@ extension GoalAddView {
             let goal: Goal
             if let editingGoal {
                 goal = editingGoal
-                goal.update(title: trimmingTitle, startDay: startDay, endDay: endDay, color: color, offWeekday: offWeekdays, offDays: offDays, calendar: calendar)
+                goal.update(title: trimmingTitle, startDay: startDay, endDay: endDay, color: color, offWeekdays: offWeekdays, offDays: offDays, calendar: calendar)
             } else {
                 goal = Goal(title: trimmingTitle, startDay: startDay, endDay: endDay, color: color, offWeekdays: offWeekdays, offDays: offDays, calendar: calendar)
                 context.insert(goal)
