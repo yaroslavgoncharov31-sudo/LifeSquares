@@ -8,6 +8,7 @@ extension GoalAddView {
         case emptyTitle
         case noWorkingDays
         case durationOutOfRange
+        case titleTooLong
         case milestoneOutOfRange(MilestoneDraft.ID)
     }
 
@@ -130,6 +131,9 @@ extension GoalAddView {
             if availability.totalAvailable == 0 {
                 issues.append(.noWorkingDays)
             }
+            if trimmingTitle.count > Goal.maxTitleLength {
+                issues.append(.titleTooLong)
+            }
             for draft in milestones where draft.dayNumber < 1 || draft.dayNumber > durationDays {
                 issues.append(.milestoneOutOfRange(draft.id))
             }
@@ -166,13 +170,13 @@ extension GoalAddView {
         func addMilestone(title: String, on date: Date) {
             let days = calendar.dateComponents([.day], from: startDay, to: date).day
             let draft = MilestoneDraft(title: title.trimmingCharacters(in: .whitespacesAndNewlines), dayNumber: (days ?? 0) + 1)
-            guard !draft.title.isEmpty else { return }
+            guard !draft.title.isEmpty, draft.title.count <= Milestone.maxTitleLimit else { return }
             milestones.append(draft)
         }
 
         func addMilestone(title: String, dayNumber: Int) {
             let draft = MilestoneDraft(title: title.trimmingCharacters(in: .whitespacesAndNewlines), dayNumber: dayNumber)
-            guard !draft.title.isEmpty else { return }
+            guard !draft.title.isEmpty, draft.title.count <= Milestone.maxTitleLimit else { return }
             milestones.append(draft)
         }
 
@@ -206,6 +210,7 @@ extension GoalAddView {
             for draft in milestones {
                 let target = calendar.date(byAdding: .day, value: draft.dayNumber - 1, to: startDay)!
                 if let existing = draft.existing {
+                    guard existing.title.count <= Milestone.maxTitleLimit else { return }
                     existing.title = draft.title
                     existing.targetDay = calendar.startOfDay(for: target)
                 } else {
