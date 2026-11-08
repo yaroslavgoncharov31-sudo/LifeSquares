@@ -167,7 +167,6 @@ struct GoalAddView: View {
             .onDelete { indexSet in
                 indexSet.map { viewModel.milestones[$0] }.forEach(viewModel.removeMilestone)
             }
-            HStack {
                 if let range = viewModel.goalRange {
                     MilestoneInputRow(in: range, isFocused: $isMilestoneFocused) { title, date in
                         withAnimation { viewModel.addMilestone(title: title, on: date) }
@@ -177,7 +176,6 @@ struct GoalAddView: View {
                     Text("Specify duration first")
                         .foregroundStyle(.primary)
                 }
-            }
         } header: {
             Text("Milestones")
         } footer: {
