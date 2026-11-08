@@ -66,6 +66,7 @@ struct GoalDetailView: View {
                         if let range = viewModel.goalRange {
                             MilestoneInputRow(in: range, isFocused: $isMilestoneFocused) { title, date in
                                 viewModel.goal.addMilestone(title: title, on: date)
+                                viewModel.refresh()
                             }
                             .buttonStyle(.borderless)
                         }
