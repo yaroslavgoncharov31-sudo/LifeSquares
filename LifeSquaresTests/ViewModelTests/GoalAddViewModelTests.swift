@@ -563,5 +563,64 @@ struct GoalAddViewModelTests {
 
         #expect(vm.validationIssues.isEmpty)
     }
+
+    @Test func tooLongTitle_returnsCorrectValidationIssue() {
+        let calendar = helper.makeCalendar(timeZoneID: "Europe/Warsaw")
+        let now = helper.makeDate(year: 2026, month: 10, day: 26, hour: 10, minute: 30, calendar: calendar)
+        let vm = GoalAddView.ViewModel(calendar: calendar, now: now)
+        vm.title = "qwertyuiopasdfghjklzxcvbnmqwert"
+        #expect(vm.title.count == 31)
+        #expect(vm.validationIssues.contains(.titleTooLong))
+    }
+
+    @Test func thirtySymbolsTitle_returnsNoValidationIssue() {
+        let calendar = helper.makeCalendar(timeZoneID: "Europe/Warsaw")
+        let now = helper.makeDate(year: 2026, month: 10, day: 26, hour: 10, minute: 30, calendar: calendar)
+        let vm = GoalAddView.ViewModel(calendar: calendar, now: now)
+        vm.title = "qwertyuiopasdfghjklzxcvbnmqwer"
+        #expect(vm.title.count == 30)
+        #expect(vm.validationIssues == [])
+    }
+
+    @Test func thirtySymbolsTitle_countsSymbolsWithoutExtraWhitespaces_returnsNoValidationIssue() throws {
+        let calendar = helper.makeCalendar(timeZoneID: "Europe/Warsaw")
+        let now = helper.makeDate(year: 2026, month: 10, day: 26, hour: 10, minute: 30, calendar: calendar)
+        let vm = GoalAddView.ViewModel(calendar: calendar, now: now)
+        vm.title = "     qwertyuiopasdfghjklzxcvbnmqwer     "
+        #expect(vm.title.count == 40)
+
+        try vm.save(in: context)
+        let read = ModelContext(container)
+        let f = try read.fetch(FetchDescriptor<Goal>())
+        #expect(f.first?.title.count == 30)
+
+        let g = f.first
+        let mTitle = "qwertyuiopasdfghjklzxcvbnmqwer12345678901"
+        #expect(mTitle.count == 41)
+
+        g?.addMilestone(title: mTitle,
+                        on: helper.makeDate(year: 2026, month: 10, day: 27, hour: 10, minute: 30, calendar: calendar),
+                        calendar: calendar)
+
+        #expect(g?.milestones == [])
+    }
+
+    @Test func editingGoal_withTooLongTitle_returnsCorrectValidationIssue() throws {
+        let calendar = helper.makeCalendar(timeZoneID: "Europe/Warsaw")
+        let gTitle = "qwertyuiopasdfghjklzxcvbnmqwer1"
+        #expect(gTitle.count == 31)
+        let goal = Goal(
+            title: gTitle,
+            startDay: helper.makeDate(year: 2026, month: 10, day: 14, hour: 10, minute: 30, calendar: calendar),
+            endDay: helper.makeDate(year: 2026, month: 10, day: 15, hour: 10, minute: 30, calendar: calendar),
+            color: .blue,
+            offWeekdays: [],
+            offDays: [],
+            calendar: calendar
+        )
+        let vm = GoalAddView.ViewModel(calendar: calendar, goal: goal)
+        vm.title = gTitle
+        #expect(vm.title.count == 31)
+        #expect(vm.validationIssues == [.titleTooLong])    }
 }
 
