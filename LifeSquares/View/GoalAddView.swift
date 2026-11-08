@@ -27,6 +27,7 @@ struct GoalAddView: View {
     private var titleSection: some View {
         Section("Title") {
             TextField("e.g. Read every day", text: $viewModel.title)
+                .characterLimit(Goal.maxTitleLenght, text: $viewModel.title)
                 .focused($focus, equals: .goalTitle)
         }
     }

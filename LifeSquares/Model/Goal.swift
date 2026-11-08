@@ -37,4 +37,5 @@ final class Goal: Identifiable {
         self.offWeekdays = offWeekdays
         self.offDays = Set(offDays.map { calendar.startOfDay(for: $0) }).sorted()
     }
+    static let maxTitleLenght = 30
 }
