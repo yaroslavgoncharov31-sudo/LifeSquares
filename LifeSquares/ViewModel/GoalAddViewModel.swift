@@ -210,7 +210,6 @@ extension GoalAddView {
             for draft in milestones {
                 let target = calendar.date(byAdding: .day, value: draft.dayNumber - 1, to: startDay)!
                 if let existing = draft.existing {
-                    guard existing.title.count <= Milestone.maxTitleLimit else { return }
                     existing.title = draft.title
                     existing.targetDay = calendar.startOfDay(for: target)
                 } else {
