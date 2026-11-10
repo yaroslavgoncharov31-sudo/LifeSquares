@@ -3,6 +3,7 @@ import TimeCore
 import SwiftUI
 import SwiftData
 import UIKit
+import LifeSquaresKit
 
 struct GoalAddView: View {
     private enum Field: Hashable {

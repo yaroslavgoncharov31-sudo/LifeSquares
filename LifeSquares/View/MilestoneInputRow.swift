@@ -1,5 +1,6 @@
 import TimeCore
 import SwiftUI
+import LifeSquaresKit
 
 struct MilestoneInputRow: View {
     let range: ClosedRange<Date>

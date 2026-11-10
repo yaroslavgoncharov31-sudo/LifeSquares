@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C4051D2830A3277F008918EB /* LifeSquaresKit in Frameworks */ = {isa = PBXBuildFile; productRef = C4051D2730A3277F008918EB /* LifeSquaresKit */; };
 		C40D780F307295D5004D516A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = C40D780E307295D5004D516A /* .gitignore */; };
 		C458E38B3095D5C000795D7D /* Numerics in Frameworks */ = {isa = PBXBuildFile; productRef = C458E38A3095D5C000795D7D /* Numerics */; };
+		C45C75CF30A3273B00CFAAC8 /* LifeSquaresKit in Frameworks */ = {isa = PBXBuildFile; productRef = C45C75CE30A3273B00CFAAC8 /* LifeSquaresKit */; };
 		C4C91221307A1EE6007F7A86 /* TimeCore in Frameworks */ = {isa = PBXBuildFile; productRef = C4C91220307A1EE6007F7A86 /* TimeCore */; };
 		C4CB560A307A23C200563992 /* TimeCore in Frameworks */ = {isa = PBXBuildFile; productRef = C4CB5609307A23C200563992 /* TimeCore */; };
 /* End PBXBuildFile section */
@@ -52,12 +54,14 @@
 		000000000000000130000000 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
+				C45C75CF30A3273B00CFAAC8 /* LifeSquaresKit in Frameworks */,
 				C4C91221307A1EE6007F7A86 /* TimeCore in Frameworks */,
 			);
 		};
 		C40D78113072B025004D516A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
+				C4051D2830A3277F008918EB /* LifeSquaresKit in Frameworks */,
 				C458E38B3095D5C000795D7D /* Numerics in Frameworks */,
 				C4CB560A307A23C200563992 /* TimeCore in Frameworks */,
 			);
@@ -114,6 +118,7 @@
 			name = LifeSquares;
 			packageProductDependencies = (
 				C4C91220307A1EE6007F7A86 /* TimeCore */,
+				C45C75CE30A3273B00CFAAC8 /* LifeSquaresKit */,
 			);
 			productName = MyApp;
 			productReference = 000000000000000000000120 /* LifeSquares.app */;
@@ -139,6 +144,7 @@
 			packageProductDependencies = (
 				C4CB5609307A23C200563992 /* TimeCore */,
 				C458E38A3095D5C000795D7D /* Numerics */,
+				C4051D2730A3277F008918EB /* LifeSquaresKit */,
 			);
 			productName = LifeSquaresTests;
 			productReference = C40D78143072B025004D516A /* LifeSquaresTests.xctest */;
@@ -175,6 +181,7 @@
 			packageReferences = (
 				C44F3D70307A1DBF0085A518 /* XCLocalSwiftPackageReference "TimeCore" */,
 				C449D50A3095D444004E8A87 /* XCRemoteSwiftPackageReference "swift-numerics" */,
+				C45C75CD30A326C800CFAAC8 /* XCLocalSwiftPackageReference "LifeSquaresKit" */,
 			);
 			preferredProjectObjectVersion = 90;
 			productRefGroup = 000000000000000000000020 /* Products */;
@@ -528,6 +535,10 @@
 			isa = XCLocalSwiftPackageReference;
 			relativePath = TimeCore;
 		};
+		C45C75CD30A326C800CFAAC8 /* XCLocalSwiftPackageReference "LifeSquaresKit" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = LifeSquaresKit;
+		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
@@ -542,10 +553,20 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C4051D2730A3277F008918EB /* LifeSquaresKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C45C75CD30A326C800CFAAC8 /* XCLocalSwiftPackageReference "LifeSquaresKit" */;
+			productName = LifeSquaresKit;
+		};
 		C458E38A3095D5C000795D7D /* Numerics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C449D50A3095D444004E8A87 /* XCRemoteSwiftPackageReference "swift-numerics" */;
 			productName = Numerics;
+		};
+		C45C75CE30A3273B00CFAAC8 /* LifeSquaresKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C45C75CD30A326C800CFAAC8 /* XCLocalSwiftPackageReference "LifeSquaresKit" */;
+			productName = LifeSquaresKit;
 		};
 		C4C91220307A1EE6007F7A86 /* TimeCore */ = {
 			isa = XCSwiftPackageProductDependency;

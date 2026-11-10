@@ -1,8 +1,10 @@
 import SwiftUI
 import SwiftData
+import LifeSquaresKit
 
 @main struct LifeSquaresApp: App {
     @State private var now = Date()
+    @Environment(\.scenePhase) private var scenePhase
     private let calendar = Calendar.autoupdatingCurrent
     var body: some Scene {
         WindowGroup {
@@ -20,7 +22,12 @@ import SwiftData
             .onReceive(NotificationCenter.default.publisher(for: UIApplication.significantTimeChangeNotification)) { _ in
                 now = Date()
             }
+            .onChange(of: scenePhase) {
+                if scenePhase == .active {
+                    now = Date()
+                }
+            }
         }
-        .modelContainer(for: [Goal.self, Milestone.self])
+        .modelContainer(SharedModelContainer.shared)
     }
 }

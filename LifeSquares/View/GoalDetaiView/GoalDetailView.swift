@@ -2,6 +2,7 @@ import SwiftUI
 import Foundation
 import TimeCore
 import SwiftData
+import LifeSquaresKit
 
 struct GoalDetailView: View {
 

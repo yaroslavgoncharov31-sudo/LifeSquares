@@ -2,6 +2,7 @@ import Testing
 internal import Foundation
 @testable import LifeSquares
 internal import TimeCore
+internal import LifeSquaresKit
 
 @MainActor
 struct DayCellModel_make {
@@ -18,7 +19,7 @@ struct DayCellModel_make {
         let snapshot = goal.snapshot(now: now, calendar: calendar)
 
         let cell = DayCellModel.make(index: 0, snapshot: snapshot)
-        #expect(cell?.state == .past)
+        #expect(cell?.state == CellState.past)
         #expect(cell?.isAvailable == true)
         #expect(cell?.hasMilestone == false)
         #expect(cell?.id == 0)
@@ -34,7 +35,7 @@ struct DayCellModel_make {
         let snapshot = goal.snapshot(now: now, calendar: calendar)
 
         let cell = DayCellModel.make(index: 2, snapshot: snapshot)
-        #expect(cell?.state == .past)
+        #expect(cell?.state == CellState.past)
         #expect(cell?.isAvailable == false)
         #expect(cell?.hasMilestone == false)
         #expect(cell?.id == 2)
@@ -50,7 +51,7 @@ struct DayCellModel_make {
         let snapshot = goal.snapshot(now: now, calendar: calendar)
 
         let cell = DayCellModel.make(index: 7, snapshot: snapshot)
-        #expect(cell?.state == .today)
+        #expect(cell?.state == CellState.today)
         #expect(cell?.isAvailable == true)
         #expect(cell?.hasMilestone == false)
         #expect(cell?.id == 7)
@@ -66,7 +67,7 @@ struct DayCellModel_make {
         let snapshot = goal.snapshot(now: now, calendar: calendar)
 
         let cell = DayCellModel.make(index: 9, snapshot: snapshot)
-        #expect(cell?.state == .future)
+        #expect(cell?.state == CellState.future)
         #expect(cell?.isAvailable == true)
         #expect(cell?.hasMilestone == true)
         #expect(cell?.id == 9)
@@ -82,7 +83,7 @@ struct DayCellModel_make {
         let snapshot = goal.snapshot(now: now, calendar: calendar)
 
         let cell = DayCellModel.make(index: 12, snapshot: snapshot)
-        #expect(cell?.state == .future)
+        #expect(cell?.state == CellState.future)
         #expect(cell?.isAvailable == false)
         #expect(cell?.hasMilestone == false)
         #expect(cell?.id == 12)

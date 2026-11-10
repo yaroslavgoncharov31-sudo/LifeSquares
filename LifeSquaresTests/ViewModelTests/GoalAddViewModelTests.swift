@@ -3,6 +3,7 @@ import SwiftData
 @testable import LifeSquares
 import Testing
 internal import TimeCore
+internal import LifeSquaresKit
 
 @MainActor
 struct GoalAddViewModelTests {

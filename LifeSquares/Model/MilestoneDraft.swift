@@ -1,5 +1,6 @@
 import TimeCore
 import Foundation
+import LifeSquaresKit
 
 struct MilestoneDraft: Equatable, Identifiable, Hashable {
     let id = UUID()

@@ -1,6 +1,7 @@
 import TimeCore
 import Foundation
 import SwiftData
+import LifeSquaresKit
 
 extension GoalAddView {
 

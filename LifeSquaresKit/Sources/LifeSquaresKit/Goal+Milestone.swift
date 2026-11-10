@@ -1,8 +1,8 @@
 import TimeCore
-import Foundation
+public import Foundation
 import SwiftData
 
-extension Goal {
+public extension Goal {
     @discardableResult
     func addMilestone(title: String, on date: Date, calendar: Calendar = .autoupdatingCurrent) -> Milestone? {
         let day = calendar.startOfDay(for: date)

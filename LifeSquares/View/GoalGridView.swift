@@ -1,5 +1,6 @@
 import Foundation
 import SwiftUI
+import LifeSquaresKit
 
 struct GoalGridView: View {
     let goals: [Goal]

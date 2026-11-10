@@ -2,6 +2,7 @@ import TimeCore
 import SwiftData
 import Foundation
 import SwiftUI
+import LifeSquaresKit
 
 struct GoalArchiveView: View {
     @Query private var goals: [Goal]

@@ -1,7 +1,7 @@
 import Foundation
 import TimeCore
 
-extension Goal {
+public extension Goal {
     func snapshot(now: Date, calendar: Calendar) -> GoalSnapshot {
         GoalSnapshot(
             start: startDay,
