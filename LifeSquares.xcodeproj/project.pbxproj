@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		C4051D2830A3277F008918EB /* LifeSquaresKit in Frameworks */ = {isa = PBXBuildFile; productRef = C4051D2730A3277F008918EB /* LifeSquaresKit */; };
 		C40D780F307295D5004D516A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = C40D780E307295D5004D516A /* .gitignore */; };
-		C458E38B3095D5C000795D7D /* Numerics in Frameworks */ = {isa = PBXBuildFile; productRef = C458E38A3095D5C000795D7D /* Numerics */; };
 		C45C75CF30A3273B00CFAAC8 /* LifeSquaresKit in Frameworks */ = {isa = PBXBuildFile; productRef = C45C75CE30A3273B00CFAAC8 /* LifeSquaresKit */; };
 		C4C91221307A1EE6007F7A86 /* TimeCore in Frameworks */ = {isa = PBXBuildFile; productRef = C4C91220307A1EE6007F7A86 /* TimeCore */; };
 		C4CB560A307A23C200563992 /* TimeCore in Frameworks */ = {isa = PBXBuildFile; productRef = C4CB5609307A23C200563992 /* TimeCore */; };
@@ -62,7 +61,6 @@
 			isa = PBXFrameworksBuildPhase;
 			files = (
 				C4051D2830A3277F008918EB /* LifeSquaresKit in Frameworks */,
-				C458E38B3095D5C000795D7D /* Numerics in Frameworks */,
 				C4CB560A307A23C200563992 /* TimeCore in Frameworks */,
 			);
 		};
@@ -143,7 +141,6 @@
 			name = LifeSquaresTests;
 			packageProductDependencies = (
 				C4CB5609307A23C200563992 /* TimeCore */,
-				C458E38A3095D5C000795D7D /* Numerics */,
 				C4051D2730A3277F008918EB /* LifeSquaresKit */,
 			);
 			productName = LifeSquaresTests;
@@ -180,7 +177,6 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				C44F3D70307A1DBF0085A518 /* XCLocalSwiftPackageReference "TimeCore" */,
-				C449D50A3095D444004E8A87 /* XCRemoteSwiftPackageReference "swift-numerics" */,
 				C45C75CD30A326C800CFAAC8 /* XCLocalSwiftPackageReference "LifeSquaresKit" */,
 			);
 			preferredProjectObjectVersion = 90;
@@ -541,27 +537,11 @@
 		};
 /* End XCLocalSwiftPackageReference section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		C449D50A3095D444004E8A87 /* XCRemoteSwiftPackageReference "swift-numerics" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/apple/swift-numerics.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.1.1;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
 /* Begin XCSwiftPackageProductDependency section */
 		C4051D2730A3277F008918EB /* LifeSquaresKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C45C75CD30A326C800CFAAC8 /* XCLocalSwiftPackageReference "LifeSquaresKit" */;
 			productName = LifeSquaresKit;
-		};
-		C458E38A3095D5C000795D7D /* Numerics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C449D50A3095D444004E8A87 /* XCRemoteSwiftPackageReference "swift-numerics" */;
-			productName = Numerics;
 		};
 		C45C75CE30A3273B00CFAAC8 /* LifeSquaresKit */ = {
 			isa = XCSwiftPackageProductDependency;
