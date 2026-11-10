@@ -2,7 +2,7 @@ import SwiftUI
 import Foundation
 import TimeCore
 
-extension GoalColor {
+public extension GoalColor {
     var color: Color {
         Color(uiColor: UIColor { trait in
             let h = trait.userInterfaceStyle == .dark ? hex.dark : hex.light

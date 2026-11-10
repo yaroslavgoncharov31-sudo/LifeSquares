@@ -6,6 +6,7 @@ import Foundation
 #if DEBUG
 import SwiftUI
 import TimeCore
+import LifeSquaresKit
 
 // MARK: - Preview data
 

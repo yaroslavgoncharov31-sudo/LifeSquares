@@ -1,9 +1,14 @@
-import SwiftUI
-import TimeCore
+public import SwiftUI
+public import TimeCore
 
-struct DayCell: View {
-    let cell: DayCellModel
-    let color: GoalColor
+public struct DayCell: View {
+    public init(cell: DayCellModel, color: GoalColor) {
+        self.cell = cell
+        self.color = color
+    }
+
+    public let cell: DayCellModel
+    public let color: GoalColor
     private let cornerRadius: CGFloat = 4
     private var fillColor: Color {
         switch cell.state {
@@ -27,7 +32,7 @@ struct DayCell: View {
     private var showSlash: Bool {
         cell.state == .future && !cell.isAvailable
     }
-    var body: some View {
+    public var body: some View {
         RoundedRectangle(cornerRadius: cornerRadius)
             .fill(fillColor)
             .aspectRatio(1, contentMode: .fit)

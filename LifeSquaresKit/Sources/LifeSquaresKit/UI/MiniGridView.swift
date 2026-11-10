@@ -1,15 +1,21 @@
 import TimeCore
-import SwiftUI
+public import SwiftUI
 
-struct MiniGridView: View {
-    let totalDays: Int
-    let elapsedDays: Int
-    let todayIndex: Int?
-    let color: GoalColor
+public struct MiniGridView: View {
+    public init(totalDays: Int, elapsedDays: Int, todayIndex: Int?, color: GoalColor) {
+        self.totalDays = totalDays
+        self.elapsedDays = elapsedDays
+        self.todayIndex = todayIndex
+        self.color = color
+    }
+    public let totalDays: Int
+    public let elapsedDays: Int
+    public let todayIndex: Int?
+    public let color: GoalColor
 
     private let spacing: CGFloat = 1.5
 
-    var body: some View {
+    public var body: some View {
         Canvas { context, size in
             let side = min(size.width, size.height)
             let layout = MiniGridLayout.make(totalDays: totalDays, side: side, spacing: spacing)

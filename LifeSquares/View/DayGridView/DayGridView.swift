@@ -1,5 +1,6 @@
 import SwiftUI
 import TimeCore
+import LifeSquaresKit
 
 struct DayGridView: View {
     let cells: [DayCellModel]
