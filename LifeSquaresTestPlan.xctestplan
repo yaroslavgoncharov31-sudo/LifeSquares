@@ -1,0 +1,44 @@
+{
+  "configurations" : [
+    {
+      "id" : "9BFD0943-FE4A-4F74-BC57-ACAB42481A8A",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "performanceAntipatternCheckerEnabled" : true,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:LifeSquares.xcodeproj",
+      "identifier" : "000000000000000100000000",
+      "name" : "LifeSquares"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:LifeSquares.xcodeproj",
+        "identifier" : "C40D78133072B025004D516A",
+        "name" : "LifeSquaresTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:TimeCore",
+        "identifier" : "TimeCoreTests",
+        "name" : "TimeCoreTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:LifeSquaresKit",
+        "identifier" : "LifeSquaresKitTests",
+        "name" : "LifeSquaresKitTests"
+      }
+    }
+  ],
+  "version" : 1
+}

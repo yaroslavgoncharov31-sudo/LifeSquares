@@ -11,16 +11,21 @@ jobs:
     runs-on: macos-15
     steps:
       - uses: actions/checkout@v4
+
       - name: Select Xcode
         uses: maxim-lobanov/setup-xcode@v1
         with:
           xcode-version: latest-stable
-      - name: Test TimeCore
-        working-directory: TimeCore
-        run: swift test
-      - name: Run tests
+
+      - name: Show simulators
+        run: xcrun simctl list devices available
+
+      - name: Run all tests (app + TimeCore + LifeSquaresKit)
         run: |
+          set -o pipefail
           xcodebuild test \
             -project LifeSquares.xcodeproj \
             -scheme LifeSquares \
-            -destination 'platform=iOS Simulator,name=iPhone 16'
+            -testPlan LifeSquaresTestPlan \
+            -destination 'platform=iOS Simulator,name=iPhone 17 Pro' \
+            | xcbeautify
