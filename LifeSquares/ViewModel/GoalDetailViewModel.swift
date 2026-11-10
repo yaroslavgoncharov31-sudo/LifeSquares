@@ -34,12 +34,6 @@ extension GoalDetailView {
         }
         var isReadOnly: Bool { snapshot.timeline.isFinished }
         var workingDayText: String { "\(snapshot.availability.remainingAvailable)/\(snapshot.availability.totalAvailable)" }
-
-        var gridAccessibilityText: String {
-            let t = snapshot.timeline
-            if let days = t.daysUntilStart { return "Starting in \(days) days"}
-            return "Total days \(t.totalDays), passed \(min(t.elapsedDays + 1, t.totalDays))"
-        }
         var forecastValue: String {
             switch snapshot.forecast {
             case .notEnoughData:

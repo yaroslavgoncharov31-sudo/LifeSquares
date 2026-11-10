@@ -1,5 +1,6 @@
 import TimeCore
 import SwiftUI
+import LifeSquaresKit
 
 struct GoalCard: View {
     let title: String

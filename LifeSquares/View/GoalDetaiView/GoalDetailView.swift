@@ -106,7 +106,7 @@ struct GoalDetailView: View {
             summary
             insight
             VStack(alignment: .leading, spacing: 20) {
-                DayGridView(cells: (viewModel.isGridExpanded ? viewModel.cells : viewModel.visibleCells), color: viewModel.goal.color, accessibilityText: viewModel.gridAccessibilityText)
+                DayGridView(cells: (viewModel.isGridExpanded ? viewModel.cells : viewModel.visibleCells), color: viewModel.goal.color, accessibilityText: viewModel.snapshot.gridAccessibilityText)
                     .padding(10)
             }
             milestoneSection
