@@ -1,4 +1,4 @@
-import Foundation
+public import Foundation
 
 public struct MilestoneInput: Equatable, Sendable {
     public let targetDate: Date
