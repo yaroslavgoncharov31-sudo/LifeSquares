@@ -241,7 +241,7 @@ struct GoalDetailViewModelTests {
         )
         let vm = GoalDetailView.ViewModel(goal: goal, calendar: calendar, now: { now })
 
-        #expect(vm.gridAccessibilityText == output)
+        #expect(vm.snapshot.gridAccessibilityText == output)
     }
 
     @Test func cells_hasCorrectAmount_andState() {
