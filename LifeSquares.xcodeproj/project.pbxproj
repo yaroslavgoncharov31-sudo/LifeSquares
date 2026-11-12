@@ -12,6 +12,10 @@
 		C45C75CF30A3273B00CFAAC8 /* LifeSquaresKit in Frameworks */ = {isa = PBXBuildFile; productRef = C45C75CE30A3273B00CFAAC8 /* LifeSquaresKit */; };
 		C4C91221307A1EE6007F7A86 /* TimeCore in Frameworks */ = {isa = PBXBuildFile; productRef = C4C91220307A1EE6007F7A86 /* TimeCore */; };
 		C4CB560A307A23C200563992 /* TimeCore in Frameworks */ = {isa = PBXBuildFile; productRef = C4CB5609307A23C200563992 /* TimeCore */; };
+		C4D870BC30A3663F00584A02 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4D870BB30A3663F00584A02 /* WidgetKit.framework */; };
+		C4D870BE30A3663F00584A02 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4D870BD30A3663F00584A02 /* SwiftUI.framework */; };
+		C4D870CB30A3664000584A02 /* LifeSquaresWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = C4D870BA30A3663F00584A02 /* LifeSquaresWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C4D870D230A3667E00584A02 /* LifeSquaresKit in Frameworks */ = {isa = PBXBuildFile; productRef = C4D870D130A3667E00584A02 /* LifeSquaresKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -22,14 +26,47 @@
 			remoteGlobalIDString = 000000000000000100000000;
 			remoteInfo = LifeSquares;
 		};
+		C4D870C930A3664000584A02 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 000000000000000000000000 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C4D870B930A3663F00584A02;
+			remoteInfo = LifeSquaresWidgetExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C4D870D030A3664000584A02 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			dstPath = "";
+			dstSubfolder = PlugIns;
+			files = (
+				C4D870CB30A3664000584A02 /* LifeSquaresWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		000000000000000000000120 /* LifeSquares.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LifeSquares.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C40D780E307295D5004D516A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		C40D78143072B025004D516A /* LifeSquaresTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LifeSquaresTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C44F3D6F307A1D880085A518 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Package.swift; path = TimeCore/Package.swift; sourceTree = "<group>"; };
+		C4D870BA30A3663F00584A02 /* LifeSquaresWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = LifeSquaresWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4D870BB30A3663F00584A02 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		C4D870BD30A3663F00584A02 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		C4D870D930A4DCDD00584A02 /* LifeSquaresWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LifeSquaresWidgetExtension.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		C4D870CC30A3664000584A02 /* Exceptions for "LifeSquaresWidget" folder in "LifeSquaresWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = C4D870B930A3663F00584A02 /* LifeSquaresWidgetExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		000000000000000000000010 /* LifeSquares */ = {
@@ -45,6 +82,14 @@
 		C4D7D1E2307A0EEB00043F3E /* .github */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = .github;
+			sourceTree = "<group>";
+		};
+		C4D870BF30A3663F00584A02 /* LifeSquaresWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				C4D870CC30A3664000584A02 /* Exceptions for "LifeSquaresWidget" folder in "LifeSquaresWidgetExtension" target */,
+			);
+			path = LifeSquaresWidget;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -64,16 +109,26 @@
 				C4CB560A307A23C200563992 /* TimeCore in Frameworks */,
 			);
 		};
+		C4D870B730A3663F00584A02 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+				C4D870D230A3667E00584A02 /* LifeSquaresKit in Frameworks */,
+				C4D870BE30A3663F00584A02 /* SwiftUI.framework in Frameworks */,
+				C4D870BC30A3663F00584A02 /* WidgetKit.framework in Frameworks */,
+			);
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		000000000000000000000001 = {
 			isa = PBXGroup;
 			children = (
+				C4D870D930A4DCDD00584A02 /* LifeSquaresWidgetExtension.entitlements */,
 				C4D7D1E2307A0EEB00043F3E /* .github */,
 				C40D780E307295D5004D516A /* .gitignore */,
 				000000000000000000000010 /* LifeSquares */,
 				C40D78153072B025004D516A /* LifeSquaresTests */,
+				C4D870BF30A3663F00584A02 /* LifeSquaresWidget */,
 				C4D7D1E8307A19F100043F3E /* Frameworks */,
 				000000000000000000000020 /* Products */,
 			);
@@ -84,6 +139,7 @@
 			children = (
 				000000000000000000000120 /* LifeSquares.app */,
 				C40D78143072B025004D516A /* LifeSquaresTests.xctest */,
+				C4D870BA30A3663F00584A02 /* LifeSquaresWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -92,6 +148,8 @@
 			isa = PBXGroup;
 			children = (
 				C44F3D6F307A1D880085A518 /* Package.swift */,
+				C4D870BB30A3663F00584A02 /* WidgetKit.framework */,
+				C4D870BD30A3663F00584A02 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -106,8 +164,12 @@
 				000000000000000120000000 /* Sources */,
 				000000000000000130000000 /* Frameworks */,
 				000000000000000140000000 /* Resources */,
+				C4D870D030A3664000584A02 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
+			);
+			dependencies = (
+				C4D870CA30A3664000584A02 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				000000000000000000000010 /* LifeSquares */,
@@ -147,6 +209,27 @@
 			productReference = C40D78143072B025004D516A /* LifeSquaresTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		C4D870B930A3663F00584A02 /* LifeSquaresWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C4D870CD30A3664000584A02 /* Build configuration list for PBXNativeTarget "LifeSquaresWidgetExtension" */;
+			buildPhases = (
+				C4D870B630A3663F00584A02 /* Sources */,
+				C4D870B730A3663F00584A02 /* Frameworks */,
+				C4D870B830A3663F00584A02 /* Resources */,
+			);
+			buildRules = (
+			);
+			fileSystemSynchronizedGroups = (
+				C4D870BF30A3663F00584A02 /* LifeSquaresWidget */,
+			);
+			name = LifeSquaresWidgetExtension;
+			packageProductDependencies = (
+				C4D870D130A3667E00584A02 /* LifeSquaresKit */,
+			);
+			productName = LifeSquaresWidgetExtension;
+			productReference = C4D870BA30A3663F00584A02 /* LifeSquaresWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -163,6 +246,9 @@
 					C40D78133072B025004D516A = {
 						CreatedOnToolsVersion = 27.0;
 						TestTargetID = 000000000000000100000000;
+					};
+					C4D870B930A3663F00584A02 = {
+						CreatedOnToolsVersion = 27.0;
 					};
 				};
 			};
@@ -186,6 +272,7 @@
 			targets = (
 				000000000000000100000000 /* LifeSquares */,
 				C40D78133072B025004D516A /* LifeSquaresTests */,
+				C4D870B930A3663F00584A02 /* LifeSquaresWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -198,6 +285,11 @@
 			);
 		};
 		C40D78123072B025004D516A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+			);
+		};
+		C4D870B830A3663F00584A02 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			files = (
 			);
@@ -215,6 +307,11 @@
 			files = (
 			);
 		};
+		C4D870B630A3663F00584A02 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+			);
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -222,6 +319,11 @@
 			isa = PBXTargetDependency;
 			target = 000000000000000100000000 /* LifeSquares */;
 			targetProxy = C40D78183072B025004D516A /* PBXContainerItemProxy */;
+		};
+		C4D870CA30A3664000584A02 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C4D870B930A3663F00584A02 /* LifeSquaresWidgetExtension */;
+			targetProxy = C4D870C930A3664000584A02 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -497,6 +599,83 @@
 			};
 			name = Release;
 		};
+		C4D870CE30A3664000584A02 /* Debug configuration for PBXNativeTarget "LifeSquaresWidgetExtension" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = LifeSquaresWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NQAT3LQ67P;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LifeSquaresWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = LifeSquaresWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yaroslavgoncharov.LifeSquares.LifeSquaresWidgetExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C4D870CF30A3664000584A02 /* Release configuration for PBXNativeTarget "LifeSquaresWidgetExtension" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = LifeSquaresWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NQAT3LQ67P;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LifeSquaresWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = LifeSquaresWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yaroslavgoncharov.LifeSquares.LifeSquaresWidgetExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -521,6 +700,14 @@
 			buildConfigurations = (
 				C40D781B3072B025004D516A /* Debug configuration for PBXNativeTarget "LifeSquaresTests" */,
 				C40D781C3072B025004D516A /* Release configuration for PBXNativeTarget "LifeSquaresTests" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		C4D870CD30A3664000584A02 /* Build configuration list for PBXNativeTarget "LifeSquaresWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4D870CE30A3664000584A02 /* Debug configuration for PBXNativeTarget "LifeSquaresWidgetExtension" */,
+				C4D870CF30A3664000584A02 /* Release configuration for PBXNativeTarget "LifeSquaresWidgetExtension" */,
 			);
 			defaultConfigurationName = Release;
 		};
@@ -557,6 +744,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C44F3D70307A1DBF0085A518 /* XCLocalSwiftPackageReference "TimeCore" */;
 			productName = TimeCore;
+		};
+		C4D870D130A3667E00584A02 /* LifeSquaresKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C45C75CD30A326C800CFAAC8 /* XCLocalSwiftPackageReference "LifeSquaresKit" */;
+			productName = LifeSquaresKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -2,6 +2,8 @@ import TimeCore
 import Foundation
 import SwiftData
 import LifeSquaresKit
+import WidgetKit
+import os
 
 extension GoalAddView {
 
@@ -236,8 +238,10 @@ extension GoalAddView {
                 try context.save()
             } catch {
                 context.rollback()
+                Logger.persistance.error("Failed to save the goal: \(error.localizedDescription)")
                 throw GoalFormError.saveFailed(underlying: error)
             }
+            WidgetCenter.shared.reloadAllTimelines()
             return goal
         }
     }

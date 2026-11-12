@@ -2,6 +2,7 @@ import Foundation
 import TimeCore
 import SwiftData
 import LifeSquaresKit
+import WidgetKit
 
 extension GoalDetailView {
     @MainActor

@@ -1,6 +1,7 @@
 import SwiftUI
 import SwiftData
 import LifeSquaresKit
+import WidgetKit
 
 @main struct LifeSquaresApp: App {
     @State private var now = Date()
@@ -21,6 +22,9 @@ import LifeSquaresKit
             }
             .onReceive(NotificationCenter.default.publisher(for: UIApplication.significantTimeChangeNotification)) { _ in
                 now = Date()
+            }
+            .onReceive(NotificationCenter.default.publisher(for: ModelContext.didSave)) { _ in
+                WidgetCenter.shared.reloadAllTimelines()
             }
             .onChange(of: scenePhase) {
                 if scenePhase == .active {
