@@ -18,4 +18,14 @@ public extension GoalSnapshot {
         if let days = t.daysUntilStart { return "Starting in \(days) days"}
         return "Total days \(t.totalDays), passed \(min(t.elapsedDays + 1, t.totalDays))"
     }
+    var compactDayText: String {
+        let t = timeline
+        let passed = min(t.elapsedDays + 1, t.totalDays)
+        if let days = t.daysUntilStart { return "Start in: \(days)"}
+        return  "\(passed)/\(t.totalDays)"
+    }
+    var compactMilestoneText: String? {
+        guard progress.total > 0 else { return nil }
+        return "\(progress.closed)/\(progress.total)"
+    }
 }
