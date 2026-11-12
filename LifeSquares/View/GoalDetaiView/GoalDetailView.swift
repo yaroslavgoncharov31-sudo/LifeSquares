@@ -83,8 +83,8 @@ struct GoalDetailView: View {
             InsightCard(
                 leftValue: viewModel.workingDayText,
                 leftLabel: "Working days left",
-                rightValue: viewModel.forecastValue,
-                rightLabel: viewModel.forecastLabel,
+                rightValue: viewModel.snapshot.forecast.forecastValue,
+                rightLabel: viewModel.snapshot.forecast.forecastLabel,
                 style: .secondary
             )
         }
@@ -106,7 +106,7 @@ struct GoalDetailView: View {
             summary
             insight
             VStack(alignment: .leading, spacing: 20) {
-                DayGridView(cells: (viewModel.isGridExpanded ? viewModel.cells : viewModel.visibleCells), color: viewModel.goal.color, accessibilityText: viewModel.snapshot.gridAccessibilityText)
+                DayGridView(cells: (viewModel.isGridExpanded ? viewModel.cells : viewModel.snapshot.windowCells()), color: viewModel.goal.color, accessibilityText: viewModel.snapshot.gridAccessibilityText)
                     .padding(10)
             }
             milestoneSection
@@ -131,7 +131,6 @@ struct GoalDetailView: View {
                 } label: {
                     Image(systemName: "ellipsis")
                 }
-
             }
         }
         .sheet(isPresented: $showEdit, onDismiss: { viewModel.refresh() }) {

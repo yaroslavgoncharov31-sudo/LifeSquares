@@ -14,10 +14,6 @@ extension GoalDetailView {
         private(set) var snapshot: GoalSnapshot
         private(set) var cells: [DayCellModel]
         var isGridExpanded: Bool = true
-        var visibleCells: [DayCellModel] {
-            guard !isGridExpanded else { return cells }
-            return Array(cells[snapshot.timeline.visibleRange(size: 30, daysBeforeToday: 9)])
-        }
         var goalRange: ClosedRange<Date>? {
             guard goal.startDay <= goal.endDay else { return nil }
             return goal.startDay...goal.endDay
@@ -34,26 +30,6 @@ extension GoalDetailView {
         }
         var isReadOnly: Bool { snapshot.timeline.isFinished }
         var workingDayText: String { "\(snapshot.availability.remainingAvailable)/\(snapshot.availability.totalAvailable)" }
-        var forecastValue: String {
-            switch snapshot.forecast {
-            case .notEnoughData:
-                "-"
-            case .completed:
-                "✓"
-            case .projected(let days):
-                "~\(days)"
-            }
-        }
-        var forecastLabel: String {
-            switch snapshot.forecast {
-            case .notEnoughData:
-                "not enough data"
-            case .completed:
-                "all milestones closed"
-            case .projected:
-                "needed at this pace"
-            }
-        }
 
         init(goal: Goal, calendar: Calendar, now: @escaping () -> Date = Date.init) {
             self.goal = goal
