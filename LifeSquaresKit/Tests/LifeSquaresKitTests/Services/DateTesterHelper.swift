@@ -1,5 +1,4 @@
 internal import Foundation
-@testable import LifeSquares
 internal import TimeCore
 internal import LifeSquaresKit
 
