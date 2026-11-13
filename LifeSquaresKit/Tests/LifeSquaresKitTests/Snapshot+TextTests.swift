@@ -1,5 +1,6 @@
 internal import TimeCore
 import Testing
+internal import LifeSquaresKit
 
 struct Snapshot_TextTests {
 
