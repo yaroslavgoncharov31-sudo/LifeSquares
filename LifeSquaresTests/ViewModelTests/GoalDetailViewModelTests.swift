@@ -35,9 +35,9 @@ struct GoalDetailViewModelTests {
     }
 
     @Test(arguments:[
-        (2026, 10, 14, "45/180"),
-        (2026, 8, 31, "1/180"),
-        (2027, 2, 26, "180/180"),
+        (2026, 10, 14, "44/180"),
+        (2026, 8, 31, "0/180"),
+        (2027, 2, 26, "179/180"),
         (2027, 3, 5, "180/180")
     ])
     func dayText_duringAndAfterGoal(year: Int, month: Int, day: Int, expected: String) {
@@ -315,11 +315,11 @@ struct GoalDetailViewModelTests {
             offDays: [offDay]
         )
         let vm = GoalDetailView.ViewModel(goal: goal, calendar: calendar, now: { now })
-        #expect(vm.snapshot.dayText == "8/14")
+        #expect(vm.snapshot.dayText == "7/14")
 
         now = helper.makeDate(year: 2026, month: 10, day: 20, hour: 10, minute: 30, calendar: calendar)
         vm.refresh()
 
-        #expect(vm.snapshot.dayText == "9/14")
+        #expect(vm.snapshot.dayText == "8/14")
     }
 }

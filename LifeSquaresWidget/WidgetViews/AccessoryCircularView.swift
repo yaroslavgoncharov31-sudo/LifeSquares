@@ -11,7 +11,7 @@ struct AccessoryCircularView: View {
         Gauge(value: Double(snapshot.timeline.elapsedDays), in: 0...Double(snapshot.timeline.totalDays)) {
             Text("Days")
         } currentValueLabel: {
-            Text("\(snapshot.timeline.elapsedDays)")
+            Text("\(snapshot.passedDays)")
         }
         .containerBackground(.fill.tertiary, for: .widget)
         .gaugeStyle(.accessoryCircularCapacity)

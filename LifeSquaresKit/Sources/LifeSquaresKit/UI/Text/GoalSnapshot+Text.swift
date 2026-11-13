@@ -2,11 +2,14 @@ import Foundation
 public import TimeCore
 
 public extension GoalSnapshot {
+    var passedDays: Int { timeline.elapsedDays }
     var dayText: String {
-        let t = timeline
-        let passed = min(t.elapsedDays + 1, t.totalDays)
-        if let days = t.daysUntilStart { return "Starting in \(days) days"}
-        return  "\(passed)/\(t.totalDays)"
+        if let days = timeline.daysUntilStart { return "Starting in \(days) days" }
+        return "\(passedDays)/\(timeline.totalDays)"
+    }
+    var compactDayText: String {
+        if let days = timeline.daysUntilStart { return "in \(days)d" }
+        return "\(passedDays)/\(timeline.totalDays)"
     }
     var milestoneText: String {
         guard progress.total > 0 else { return "No milestones" }
@@ -17,12 +20,6 @@ public extension GoalSnapshot {
         let t = timeline
         if let days = t.daysUntilStart { return "Starting in \(days) days"}
         return "Total days \(t.totalDays), passed \(min(t.elapsedDays + 1, t.totalDays))"
-    }
-    var compactDayText: String {
-        let t = timeline
-        let passed = min(t.elapsedDays + 1, t.totalDays)
-        if let days = t.daysUntilStart { return "Start in: \(days)"}
-        return  "\(passed)/\(t.totalDays)"
     }
     var compactMilestoneText: String? {
         guard progress.total > 0 else { return nil }
