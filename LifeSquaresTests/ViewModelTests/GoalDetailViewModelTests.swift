@@ -152,8 +152,8 @@ struct GoalDetailViewModelTests {
         m4.goal = goal
         let vm = GoalDetailView.ViewModel(goal: goal, calendar: calendar, now: { now })
 
-        #expect(vm.forecastValue == "-")
-        #expect(vm.forecastLabel == "not enough data")
+        #expect(vm.snapshot.forecast.forecastValue == "-")
+        #expect(vm.snapshot.forecast.forecastLabel == "not enough data")
     }
 
     @Test func forecast_allMilestonesClosed_returnsCorrectValues() throws {
@@ -186,8 +186,8 @@ struct GoalDetailViewModelTests {
         m4.status = .closed
         let vm = GoalDetailView.ViewModel(goal: goal, calendar: calendar, now: { now })
 
-        #expect(vm.forecastValue == "✓")
-        #expect(vm.forecastLabel == "all milestones closed")
+        #expect(vm.snapshot.forecast.forecastValue == "✓")
+        #expect(vm.snapshot.forecast.forecastLabel == "all milestones closed")
     }
 
     @Test func forecast_halfMilestonesClosed_returnsCorrectValues() throws {
@@ -218,8 +218,8 @@ struct GoalDetailViewModelTests {
         m2.status = .closed
         let vm = GoalDetailView.ViewModel(goal: goal, calendar: calendar, now: { now })
 
-        #expect(vm.forecastValue == "~4")
-        #expect(vm.forecastLabel == "needed at this pace")
+        #expect(vm.snapshot.forecast.forecastValue == "~4")
+        #expect(vm.snapshot.forecast.forecastLabel == "needed at this pace")
     }
 
     @Test(arguments:[
