@@ -238,10 +238,9 @@ extension GoalAddView {
                 try context.save()
             } catch {
                 context.rollback()
-                Logger.persistance.error("Failed to save the goal: \(error.localizedDescription)")
+                Logger.persistence.error("Failed to save the goal: \(error.localizedDescription)")
                 throw GoalFormError.saveFailed(underlying: error)
             }
-            WidgetCenter.shared.reloadAllTimelines()
             return goal
         }
     }
