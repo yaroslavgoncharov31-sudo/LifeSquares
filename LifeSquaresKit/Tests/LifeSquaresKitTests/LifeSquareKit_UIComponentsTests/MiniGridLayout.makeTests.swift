@@ -8,7 +8,6 @@ struct MiniGridLayout_makeTests {
     let helper = DateTesterHelper()
 
     @Test func miniGridLayout_returnsCorrectCellSize() async throws {
-        // 100 days -> 10 columns: (118 - 2 * 9) / 10 = 10, exact in floating point
         let layout = MiniGridLayout.make(totalDays: 100, side: 118, spacing: 2)
 
         #expect(layout.columns == 10)
