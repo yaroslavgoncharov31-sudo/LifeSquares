@@ -42,11 +42,11 @@ struct GoalProvider: AppIntentTimelineProvider {
         do {
             goals = try modelContext.fetch(descriptor)
         } catch {
-            Logger.persistence.error("Failed to fetch goal: \(error.localizedDescription, privacy: .public)")
+            Logger.widget.error("Failed to fetch goal: \(error.localizedDescription, privacy: .public)")
             return [GoalEntry(date: .now, content: .noGoal)]
         }
         guard let goal = goals.first else {
-            Logger.widget.info("No goal found (selected ID: \(goalID?.uuidString ?? "none", privacy: .public)")
+            Logger.widget.info("No goal found (selected ID: \((goalID?.uuidString ?? "none"), privacy: .public))")
             return [GoalEntry(date: .now, content: .noGoal)]
         }
         return (0..<days).compactMap { offset in

@@ -238,7 +238,7 @@ extension GoalAddView {
                 try context.save()
             } catch {
                 context.rollback()
-                Logger.persistence.error("Failed to save the goal: \(error.localizedDescription)")
+                Logger.persistence.error("Failed to save the goal: \(error.localizedDescription, privacy: .public)")
                 throw GoalFormError.saveFailed(underlying: error)
             }
             return goal
