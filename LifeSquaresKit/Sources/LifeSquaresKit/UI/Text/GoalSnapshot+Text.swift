@@ -19,7 +19,7 @@ public extension GoalSnapshot {
     var gridAccessibilityText: String {
         let t = timeline
         if let days = t.daysUntilStart { return "Starting in \(days) days"}
-        return "Total days \(t.totalDays), passed \(min(t.elapsedDays + 1, t.totalDays))"
+        return "Total days \(t.totalDays), passed \(passedDays)"
     }
     var compactMilestoneText: String? {
         guard progress.total > 0 else { return nil }

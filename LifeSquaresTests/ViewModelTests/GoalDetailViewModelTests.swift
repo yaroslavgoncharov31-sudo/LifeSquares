@@ -224,7 +224,7 @@ struct GoalDetailViewModelTests {
 
     @Test(arguments:[
         (7, "Starting in 5 days"),
-        (14, "Total days 14, passed 3"),
+        (14, "Total days 14, passed 2"),
         (26, "Total days 14, passed 14")
     ])
     func gridAccessibilityText_returnsCorrectText(day: Int, output: String) {
