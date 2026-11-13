@@ -3,6 +3,7 @@ import TimeCore
 import SwiftData
 import LifeSquaresKit
 import WidgetKit
+import os
 
 extension GoalDetailView {
     @MainActor
@@ -50,7 +51,12 @@ extension GoalDetailView {
                 milestone.closedAt = nil
             }
             defer { refresh() }
-            try milestone.modelContext?.save()
+            do {
+                try milestone.modelContext?.save()
+            } catch {
+                Logger.persistence.error("Failed to toggle: \(error.localizedDescription, privacy: .public)")
+                throw error
+            }
         }
 
         func refresh() {
@@ -60,7 +66,12 @@ extension GoalDetailView {
         func deleteGoal() throws {
             let context = goal.modelContext
             context?.delete(goal)
-            try context?.save()
+            do {
+                try context?.save()
+            } catch {
+                Logger.persistence.warning("Failed to delete goal: \(error.localizedDescription, privacy: .public)")
+                throw error
+            }
         }
         private static func makeCells(from snapshot: GoalSnapshot) -> [DayCellModel] {
             (0..<snapshot.timeline.totalDays).compactMap {

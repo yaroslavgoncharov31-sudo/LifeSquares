@@ -3,6 +3,7 @@ import TimeCore
 import WidgetKit
 import Foundation
 import SwiftData
+import os
 
 struct GoalProvider: AppIntentTimelineProvider {
     typealias Entry = GoalEntry
@@ -37,7 +38,15 @@ struct GoalProvider: AppIntentTimelineProvider {
             descriptor = d
         }
 
-        guard let goal = (try? modelContext.fetch(descriptor))?.first else {
+        let goals: [Goal]
+        do {
+            goals = try modelContext.fetch(descriptor)
+        } catch {
+            Logger.persistence.error("Failed to fetch goal: \(error.localizedDescription, privacy: .public)")
+            return [GoalEntry(date: .now, content: .noGoal)]
+        }
+        guard let goal = goals.first else {
+            Logger.widget.info("No goal found (selected ID: \(goalID?.uuidString ?? "none", privacy: .public)")
             return [GoalEntry(date: .now, content: .noGoal)]
         }
         return (0..<days).compactMap { offset in
