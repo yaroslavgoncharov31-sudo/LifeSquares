@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C4051D2830A3277F008918EB /* LifeSquaresKit in Frameworks */ = {isa = PBXBuildFile; productRef = C4051D2730A3277F008918EB /* LifeSquaresKit */; };
 		C40D780F307295D5004D516A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = C40D780E307295D5004D516A /* .gitignore */; };
-		C45C75CF30A3273B00CFAAC8 /* LifeSquaresKit in Frameworks */ = {isa = PBXBuildFile; productRef = C45C75CE30A3273B00CFAAC8 /* LifeSquaresKit */; };
-		C4D2BD9730A773FA006E2044 /* TimeCore in Frameworks */ = {isa = PBXBuildFile; productRef = C4D2BD9630A773FA006E2044 /* TimeCore */; };
-		C4D2BD9930A77404006E2044 /* TimeCore in Frameworks */ = {isa = PBXBuildFile; productRef = C4D2BD9830A77404006E2044 /* TimeCore */; };
-		C4D2BD9B30A7740E006E2044 /* TimeCore in Frameworks */ = {isa = PBXBuildFile; productRef = C4D2BD9A30A7740E006E2044 /* TimeCore */; };
+		C4C57A8F30A7806500468A8E /* LifeSquaresKit in Frameworks */ = {isa = PBXBuildFile; productRef = C4C57A8E30A7806500468A8E /* LifeSquaresKit */; };
+		C4C57A9130A7806A00468A8E /* TimeCore in Frameworks */ = {isa = PBXBuildFile; productRef = C4C57A9030A7806A00468A8E /* TimeCore */; };
+		C4C57A9330A7807200468A8E /* LifeSquaresKit in Frameworks */ = {isa = PBXBuildFile; productRef = C4C57A9230A7807200468A8E /* LifeSquaresKit */; };
+		C4C57A9530A7807700468A8E /* TimeCore in Frameworks */ = {isa = PBXBuildFile; productRef = C4C57A9430A7807700468A8E /* TimeCore */; };
+		C4C57A9730A7808C00468A8E /* LifeSquaresKit in Frameworks */ = {isa = PBXBuildFile; productRef = C4C57A9630A7808C00468A8E /* LifeSquaresKit */; };
+		C4C57A9930A7809000468A8E /* TimeCore in Frameworks */ = {isa = PBXBuildFile; productRef = C4C57A9830A7809000468A8E /* TimeCore */; };
 		C4D870BC30A3663F00584A02 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4D870BB30A3663F00584A02 /* WidgetKit.framework */; };
 		C4D870BE30A3663F00584A02 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4D870BD30A3663F00584A02 /* SwiftUI.framework */; };
 		C4D870CB30A3664000584A02 /* LifeSquaresWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = C4D870BA30A3663F00584A02 /* LifeSquaresWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		C4D870D230A3667E00584A02 /* LifeSquaresKit in Frameworks */ = {isa = PBXBuildFile; productRef = C4D870D130A3667E00584A02 /* LifeSquaresKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +52,8 @@
 		000000000000000000000120 /* LifeSquares.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LifeSquares.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C40D780E307295D5004D516A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		C40D78143072B025004D516A /* LifeSquaresTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LifeSquaresTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C44F3D6F307A1D880085A518 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Package.swift; path = TimeCore/Package.swift; sourceTree = "<group>"; };
+		C4D2BD9C30A77EE7006E2044 /* LifeSquaresKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = LifeSquaresKit; sourceTree = "<group>"; };
+		C4D2BD9D30A77EE7006E2044 /* TimeCore */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = TimeCore; sourceTree = "<group>"; };
 		C4D870BA30A3663F00584A02 /* LifeSquaresWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = LifeSquaresWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4D870BB30A3663F00584A02 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		C4D870BD30A3663F00584A02 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -99,22 +100,22 @@
 		000000000000000130000000 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
-				C4D2BD9930A77404006E2044 /* TimeCore in Frameworks */,
-				C45C75CF30A3273B00CFAAC8 /* LifeSquaresKit in Frameworks */,
+				C4C57A9130A7806A00468A8E /* TimeCore in Frameworks */,
+				C4C57A8F30A7806500468A8E /* LifeSquaresKit in Frameworks */,
 			);
 		};
 		C40D78113072B025004D516A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
-				C4D2BD9B30A7740E006E2044 /* TimeCore in Frameworks */,
-				C4051D2830A3277F008918EB /* LifeSquaresKit in Frameworks */,
+				C4C57A9530A7807700468A8E /* TimeCore in Frameworks */,
+				C4C57A9330A7807200468A8E /* LifeSquaresKit in Frameworks */,
 			);
 		};
 		C4D870B730A3663F00584A02 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
-				C4D2BD9730A773FA006E2044 /* TimeCore in Frameworks */,
-				C4D870D230A3667E00584A02 /* LifeSquaresKit in Frameworks */,
+				C4C57A9930A7809000468A8E /* TimeCore in Frameworks */,
+				C4C57A9730A7808C00468A8E /* LifeSquaresKit in Frameworks */,
 				C4D870BE30A3663F00584A02 /* SwiftUI.framework in Frameworks */,
 				C4D870BC30A3663F00584A02 /* WidgetKit.framework in Frameworks */,
 			);
@@ -132,6 +133,8 @@
 				C40D78153072B025004D516A /* LifeSquaresTests */,
 				C4D870BF30A3663F00584A02 /* LifeSquaresWidget */,
 				C4D7D1E8307A19F100043F3E /* Frameworks */,
+				C4D2BD9C30A77EE7006E2044 /* LifeSquaresKit */,
+				C4D2BD9D30A77EE7006E2044 /* TimeCore */,
 				000000000000000000000020 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -149,7 +152,6 @@
 		C4D7D1E8307A19F100043F3E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C44F3D6F307A1D880085A518 /* Package.swift */,
 				C4D870BB30A3663F00584A02 /* WidgetKit.framework */,
 				C4D870BD30A3663F00584A02 /* SwiftUI.framework */,
 			);
@@ -179,8 +181,8 @@
 			);
 			name = LifeSquares;
 			packageProductDependencies = (
-				C45C75CE30A3273B00CFAAC8 /* LifeSquaresKit */,
-				C4D2BD9830A77404006E2044 /* TimeCore */,
+				C4C57A8E30A7806500468A8E /* LifeSquaresKit */,
+				C4C57A9030A7806A00468A8E /* TimeCore */,
 			);
 			productName = MyApp;
 			productReference = 000000000000000000000120 /* LifeSquares.app */;
@@ -204,8 +206,8 @@
 			);
 			name = LifeSquaresTests;
 			packageProductDependencies = (
-				C4051D2730A3277F008918EB /* LifeSquaresKit */,
-				C4D2BD9A30A7740E006E2044 /* TimeCore */,
+				C4C57A9230A7807200468A8E /* LifeSquaresKit */,
+				C4C57A9430A7807700468A8E /* TimeCore */,
 			);
 			productName = LifeSquaresTests;
 			productReference = C40D78143072B025004D516A /* LifeSquaresTests.xctest */;
@@ -226,8 +228,8 @@
 			);
 			name = LifeSquaresWidgetExtension;
 			packageProductDependencies = (
-				C4D870D130A3667E00584A02 /* LifeSquaresKit */,
-				C4D2BD9630A773FA006E2044 /* TimeCore */,
+				C4C57A9630A7808C00468A8E /* LifeSquaresKit */,
+				C4C57A9830A7809000468A8E /* TimeCore */,
 			);
 			productName = LifeSquaresWidgetExtension;
 			productReference = C4D870BA30A3663F00584A02 /* LifeSquaresWidgetExtension.appex */;
@@ -265,8 +267,8 @@
 			mainGroup = 000000000000000000000001;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				C45C75CD30A326C800CFAAC8 /* XCLocalSwiftPackageReference "LifeSquaresKit" */,
-				C4D2BD9530A773E6006E2044 /* XCLocalSwiftPackageReference "TimeCore" */,
+				C4C57A8C30A7802A00468A8E /* XCLocalSwiftPackageReference "TimeCore" */,
+				C4C57A8D30A7803600468A8E /* XCLocalSwiftPackageReference "LifeSquaresKit" */,
 			);
 			preferredProjectObjectVersion = 90;
 			productRefGroup = 000000000000000000000020 /* Products */;
@@ -717,46 +719,40 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		C45C75CD30A326C800CFAAC8 /* XCLocalSwiftPackageReference "LifeSquaresKit" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = LifeSquaresKit;
-		};
-		C4D2BD9530A773E6006E2044 /* XCLocalSwiftPackageReference "TimeCore" */ = {
+		C4C57A8C30A7802A00468A8E /* XCLocalSwiftPackageReference "TimeCore" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = TimeCore;
+		};
+		C4C57A8D30A7803600468A8E /* XCLocalSwiftPackageReference "LifeSquaresKit" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = LifeSquaresKit;
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		C4051D2730A3277F008918EB /* LifeSquaresKit */ = {
+		C4C57A8E30A7806500468A8E /* LifeSquaresKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C45C75CD30A326C800CFAAC8 /* XCLocalSwiftPackageReference "LifeSquaresKit" */;
 			productName = LifeSquaresKit;
 		};
-		C45C75CE30A3273B00CFAAC8 /* LifeSquaresKit */ = {
+		C4C57A9030A7806A00468A8E /* TimeCore */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C45C75CD30A326C800CFAAC8 /* XCLocalSwiftPackageReference "LifeSquaresKit" */;
+			productName = TimeCore;
+		};
+		C4C57A9230A7807200468A8E /* LifeSquaresKit */ = {
+			isa = XCSwiftPackageProductDependency;
 			productName = LifeSquaresKit;
 		};
-		C4D2BD9630A773FA006E2044 /* TimeCore */ = {
+		C4C57A9430A7807700468A8E /* TimeCore */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C4D2BD9530A773E6006E2044 /* XCLocalSwiftPackageReference "TimeCore" */;
 			productName = TimeCore;
 		};
-		C4D2BD9830A77404006E2044 /* TimeCore */ = {
+		C4C57A9630A7808C00468A8E /* LifeSquaresKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C4D2BD9530A773E6006E2044 /* XCLocalSwiftPackageReference "TimeCore" */;
-			productName = TimeCore;
-		};
-		C4D2BD9A30A7740E006E2044 /* TimeCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C4D2BD9530A773E6006E2044 /* XCLocalSwiftPackageReference "TimeCore" */;
-			productName = TimeCore;
-		};
-		C4D870D130A3667E00584A02 /* LifeSquaresKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C45C75CD30A326C800CFAAC8 /* XCLocalSwiftPackageReference "LifeSquaresKit" */;
 			productName = LifeSquaresKit;
+		};
+		C4C57A9830A7809000468A8E /* TimeCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TimeCore;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
