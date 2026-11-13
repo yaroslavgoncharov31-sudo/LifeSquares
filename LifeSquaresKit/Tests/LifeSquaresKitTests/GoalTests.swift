@@ -1,5 +1,5 @@
 import Testing
-@testable import LifeSquares
+internal import LifeSquaresKit
 import SwiftData
 internal import Foundation
 internal import TimeCore

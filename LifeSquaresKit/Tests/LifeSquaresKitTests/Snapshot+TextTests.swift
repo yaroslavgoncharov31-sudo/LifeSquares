@@ -1,5 +1,4 @@
 internal import TimeCore
-@testable import LifeSquaresKit
 import Testing
 
 struct Snapshot_TextTests {

@@ -1,5 +1,5 @@
 import Testing
-@testable import LifeSquaresKit
+internal import LifeSquaresKit
 internal import Foundation
 internal import TimeCore
 @MainActor

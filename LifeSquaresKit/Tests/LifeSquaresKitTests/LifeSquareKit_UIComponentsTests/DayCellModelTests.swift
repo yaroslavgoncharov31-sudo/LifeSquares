@@ -1,7 +1,7 @@
 import Testing
 internal import Foundation
 internal import TimeCore
-@testable import LifeSquaresKit
+internal import LifeSquaresKit
 
 @MainActor
 struct DayCellModel_make {
