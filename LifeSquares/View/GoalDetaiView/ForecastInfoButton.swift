@@ -15,7 +15,7 @@ struct ForecastInfoButton: View {
         .accessibilityLabel("How forecast works")
         .popover(isPresented: $isPresented) {
             Text("""
-                How forecast works
+                How the forecast works
                 It uses your pace so far: the working days it took to close your finished milestones. The remaining ones are assumed to take about the same.
 
                 Example: 2 milestones closed in 10 working days, 4 left → about 20 more working days.

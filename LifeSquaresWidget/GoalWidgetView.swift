@@ -31,7 +31,7 @@ struct NoGoalView: View {
         VStack {
             Image(systemName: "plus.circle")
                 .padding(.bottom, 3)
-            Text("Create a goal in app")
+            Text("Create a goal in the app")
         }
         .font(.caption)
         .foregroundStyle(.secondary)
