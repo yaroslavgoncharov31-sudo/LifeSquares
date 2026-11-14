@@ -7,7 +7,6 @@ struct GoalGridView: View {
     let calendar: Calendar
     let now: Date
     @ScaledMetric(relativeTo: .body) private var minCardWidth: CGFloat = 160
-    private let columns = [GridItem(.flexible(), spacing: 12), GridItem(.flexible(), spacing: 12)]
 
     var body: some View {
         ScrollView {
