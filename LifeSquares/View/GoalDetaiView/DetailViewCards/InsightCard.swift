@@ -25,7 +25,12 @@ struct InsightCard: View {
         HStack(spacing: 16) {
             column(value: leftValue, label: leftLabel)
             Divider()
-            column(value: rightValue, label: rightLabel)
+            HStack {
+                column(value: rightValue, label: rightLabel)
+                VStack(alignment: .trailing) {
+                    ForecastInfoButton()
+                }
+            }
         }
         .fixedSize(horizontal: false, vertical: true)
         .padding(padding)
