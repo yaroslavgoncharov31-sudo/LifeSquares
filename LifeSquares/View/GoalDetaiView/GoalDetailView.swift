@@ -53,52 +53,49 @@ struct GoalDetailView: View {
     }
     private var milestoneSection: some View {
         VStack(alignment: .leading, spacing: 8) {
-                VStack {
-                    ForEach(viewModel.milestones) { m in
-                        milestoneRow(m)
-                        if m.id != viewModel.milestones.last?.id {
-                            Divider().padding(.leading, 20)
-                        }
-                    }
-                    if !viewModel.isReadOnly {
-                        if !viewModel.milestones.isEmpty {
-                            Divider()
-                        }
-                        if let range = viewModel.goalRange {
-                            MilestoneInputRow(in: range, isFocused: $isMilestoneFocused) { title, date in
-                                viewModel.goal.addMilestone(title: title, on: date)
-                                viewModel.refresh()
-                            }
-                            .buttonStyle(.borderless)
-                        }
+            VStack {
+                ForEach(viewModel.milestones) { m in
+                    milestoneRow(m)
+                    if m.id != viewModel.milestones.last?.id {
+                        Divider().padding(.leading, 20)
                     }
                 }
-                .padding(12)
-                .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 16))
+                if !viewModel.isReadOnly {
+                    if !viewModel.milestones.isEmpty {
+                        Divider()
+                    }
+                    if let range = viewModel.goalRange {
+                        MilestoneInputRow(in: range, isFocused: $isMilestoneFocused) { title, date in
+                            viewModel.goal.addMilestone(title: title, on: date)
+                            viewModel.refresh()
+                        }
+                        .buttonStyle(.borderless)
+                    }
+                }
+            }
+            .padding(12)
+            .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 16))
         }
     }
 
     private var insight: some View {
-        HStack {
-            InsightCard(
-                leftValue: viewModel.workingDayText,
-                leftLabel: "Working days left",
-                rightValue: viewModel.snapshot.forecast.forecastValue,
-                rightLabel: viewModel.snapshot.forecast.forecastLabel,
-                style: .secondary
-            )
-        }
+        InsightCard(
+            leftValue: viewModel.snapshot.workingDayText,
+            leftLabel: String(localized: "Working days left"),
+            rightValue: viewModel.snapshot.forecast.forecastValue,
+            rightLabel: viewModel.snapshot.forecast.forecastLabel,
+            style: .secondary
+        )
+
     }
     private var summary: some View {
-        HStack {
-            SummaryCard(
-                leftValue: viewModel.snapshot.dayText,
-                leftLabel: "Days passed",
-                rightValue: viewModel.snapshot.milestoneText,
-                rightLabel: viewModel.milestoneLabelText ?? "",
-                style: .primary
-            )
-        }
+        SummaryCard(
+            leftValue: viewModel.snapshot.dayText,
+            leftLabel:  String(localized: "Days passed"),
+            rightValue: viewModel.snapshot.milestoneText,
+            rightLabel: viewModel.snapshot.milestoneLabelText,
+            style: .primary
+        )
         .frame(maxWidth: .infinity)
     }
     var body: some View {
@@ -139,7 +136,7 @@ struct GoalDetailView: View {
         .alert("Delete \(viewModel.goal.title)?", isPresented: $showDeleteConfirmation) {
             Button("Delete", role: .destructive) { deleteGoal() }
         } message: {
-            Text("The goal and all it's milestones will be removed. This action can't be undone")
+            Text("The goal and all its milestones will be removed. This action can't be undone")
         }
         .sensoryFeedback(.warning, trigger: showDeleteConfirmation) { _, isShown in isShown }
         .background(Color(.systemGroupedBackground))

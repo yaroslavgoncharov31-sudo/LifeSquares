@@ -14,6 +14,8 @@
 		C4C57A9530A7807700468A8E /* TimeCore in Frameworks */ = {isa = PBXBuildFile; productRef = C4C57A9430A7807700468A8E /* TimeCore */; };
 		C4C57A9730A7808C00468A8E /* LifeSquaresKit in Frameworks */ = {isa = PBXBuildFile; productRef = C4C57A9630A7808C00468A8E /* LifeSquaresKit */; };
 		C4C57A9930A7809000468A8E /* TimeCore in Frameworks */ = {isa = PBXBuildFile; productRef = C4C57A9830A7809000468A8E /* TimeCore */; };
+		C4C57AA430A8912400468A8E /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = C4C57AA330A8912400468A8E /* Localizable.xcstrings */; };
+		C4C57AA530A8912400468A8E /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = C4C57AA330A8912400468A8E /* Localizable.xcstrings */; };
 		C4D870BC30A3663F00584A02 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4D870BB30A3663F00584A02 /* WidgetKit.framework */; };
 		C4D870BE30A3663F00584A02 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4D870BD30A3663F00584A02 /* SwiftUI.framework */; };
 		C4D870CB30A3664000584A02 /* LifeSquaresWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = C4D870BA30A3663F00584A02 /* LifeSquaresWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -52,6 +54,7 @@
 		000000000000000000000120 /* LifeSquares.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LifeSquares.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C40D780E307295D5004D516A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		C40D78143072B025004D516A /* LifeSquaresTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LifeSquaresTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4C57AA330A8912400468A8E /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		C4D2BD9C30A77EE7006E2044 /* LifeSquaresKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = LifeSquaresKit; sourceTree = "<group>"; };
 		C4D2BD9D30A77EE7006E2044 /* TimeCore */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = TimeCore; sourceTree = "<group>"; };
 		C4D870BA30A3663F00584A02 /* LifeSquaresWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = LifeSquaresWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +129,7 @@
 		000000000000000000000001 = {
 			isa = PBXGroup;
 			children = (
+				C4C57AA330A8912400468A8E /* Localizable.xcstrings */,
 				C4D870D930A4DCDD00584A02 /* LifeSquaresWidgetExtension.entitlements */,
 				C4D7D1E2307A0EEB00043F3E /* .github */,
 				C40D780E307295D5004D516A /* .gitignore */,
@@ -262,6 +266,8 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				ru,
+				pl,
 				Base,
 			);
 			mainGroup = 000000000000000000000001;
@@ -286,6 +292,7 @@
 		000000000000000140000000 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			files = (
+				C4C57AA530A8912400468A8E /* Localizable.xcstrings in Resources */,
 				C40D780F307295D5004D516A /* .gitignore in Resources */,
 			);
 		};
@@ -297,6 +304,7 @@
 		C4D870B830A3663F00584A02 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			files = (
+				C4C57AA430A8912400468A8E /* Localizable.xcstrings in Resources */,
 			);
 		};
 /* End PBXResourcesBuildPhase section */
@@ -396,6 +404,7 @@
 				PROJECT_UNIQUE_VALUE = BEX1NCST;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TVOS_DEPLOYMENT_TARGET = 27.0;
 				WATCHOS_DEPLOYMENT_TARGET = 27.0;
@@ -459,6 +468,7 @@
 				PROJECT_UNIQUE_VALUE = BEX1NCST;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				TVOS_DEPLOYMENT_TARGET = 27.0;
 				WATCHOS_DEPLOYMENT_TARGET = 27.0;
 				XROS_DEPLOYMENT_TARGET = 27.0;

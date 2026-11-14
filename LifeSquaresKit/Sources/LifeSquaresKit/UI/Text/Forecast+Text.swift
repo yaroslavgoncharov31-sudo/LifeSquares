@@ -5,21 +5,21 @@ public extension Forecast {
     var forecastValue: String {
         switch self {
         case .notEnoughData:
-            "-"
+            String(localized: "-", bundle: .module)
         case .completed:
-            "✓"
+            String(localized: "✓", bundle: .module)
         case .projected(let days):
-            "~\(days)"
+            String(localized: "~\(days)", bundle: .module)
         }
     }
     var forecastLabel: String {
         switch self {
         case .notEnoughData:
-            "not enough data"
+            String(localized: "not enough data", bundle: .module)
         case .completed:
-            "all milestones closed"
+            String(localized: "all milestones closed", bundle: .module)
         case .projected:
-            "needed at this pace"
+            String(localized: "needed at this pace", bundle: .module)
         }
     }
 }

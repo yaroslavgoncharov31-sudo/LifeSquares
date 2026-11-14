@@ -23,15 +23,15 @@ extension GoalDetailView {
         var milestones: [Milestone] {
             (goal.milestones ?? []).sorted { $0.targetDay < $1.targetDay }
         }
-        var milestoneLabelText: String? {
-            if snapshot.progress.total == 0 {
-                return nil
-            } else {
-                return "Milestones closed"
-            }
-        }
+//        var milestoneLabelText: String? {
+//            if snapshot.progress.total == 0 {
+//                return nil
+//            } else {
+//                return "Milestones closed"
+//            }
+//        }
         var isReadOnly: Bool { snapshot.timeline.isFinished }
-        var workingDayText: String { "\(snapshot.availability.remainingAvailable)/\(snapshot.availability.totalAvailable)" }
+        
 
         init(goal: Goal, calendar: Calendar, now: @escaping () -> Date = Date.init) {
             self.goal = goal

@@ -19,6 +19,7 @@ let package = Package(
         .target(
             name: "LifeSquaresKit",
             dependencies: [.product(name: "TimeCore", package: "TimeCore")],
+            resources: [.process("Resources")],
             swiftSettings: [
                 .enableUpcomingFeature("ApproachableConcurrency"),
             ],
