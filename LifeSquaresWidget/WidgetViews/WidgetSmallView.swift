@@ -26,6 +26,7 @@ struct WidgetSmallView: View {
             .monospacedDigit()
             .foregroundStyle(.secondary)
         }
+        .accessibilityElement(children: .combine)
     }
 }
 

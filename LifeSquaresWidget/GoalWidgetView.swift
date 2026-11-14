@@ -30,6 +30,7 @@ struct NoGoalView: View {
     var body: some View {
         VStack {
             Image(systemName: "plus.circle")
+                .accessibilityHidden(true)
                 .padding(.bottom, 3)
             Text("Create a goal in the app")
         }

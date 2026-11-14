@@ -14,5 +14,8 @@ struct GoalGridLayout: View {
                 DayCell(cell: $0, color: color)
             }
         }
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel(snapshot.gridAccessibilityText)
+
     }
 }

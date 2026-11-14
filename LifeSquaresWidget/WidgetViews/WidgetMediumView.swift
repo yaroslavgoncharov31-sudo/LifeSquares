@@ -37,6 +37,7 @@ struct WidgetMediumView: View {
             .monospacedDigit()
             .foregroundStyle(.secondary)
         }
+        .accessibilityElement(children: .combine)
     }
 }
 

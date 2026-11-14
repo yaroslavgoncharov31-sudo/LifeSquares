@@ -21,8 +21,8 @@ public extension GoalSnapshot {
         if let days = t.daysUntilStart { return String(localized: "Starting in \(days) days", bundle: .module)}
         return String(localized: "Total days \(t.totalDays), passed \(passedDays)", bundle: .module)
     }
-    var compactMilestoneText: String? {
-        guard progress.total > 0 else { return nil }
+    var compactMilestoneText: String {
+        guard progress.total > 0 else { return "" }
         return "\(progress.closed)/\(progress.total)"
     }
     var milestoneLabelText: String {

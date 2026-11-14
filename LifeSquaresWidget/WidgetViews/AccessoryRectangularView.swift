@@ -19,14 +19,16 @@ struct AccessoryRectangularView: View {
                 EmptyView()
             }
             .gaugeStyle(.accessoryLinearCapacity)
+            .accessibilityLabel("Days passed")
 
             HStack {
                 Text("\(snapshot.compactDayText)")
                 Spacer()
                 if !snapshot.milestoneDays.isEmpty {
                     Image(systemName: "flag")
+                        .accessibilityHidden(true)
                 }
-                Text(snapshot.compactMilestoneText ?? "")
+                Text(snapshot.compactMilestoneText)
             }
             .font(.caption)
         }
