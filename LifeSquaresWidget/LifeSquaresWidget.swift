@@ -9,6 +9,7 @@ struct LifeSquaresWidget: Widget {
     var body: some WidgetConfiguration {
         AppIntentConfiguration(kind: kind, intent: SelectGoalIntent.self, provider: GoalProvider()) { entry in
             GoalWidgetView(entry: entry)
+                .environment(\.dayCellStyle, .compact)
                 .containerBackground(.fill.tertiary, for: .widget)
         }
         .configurationDisplayName("Goal")

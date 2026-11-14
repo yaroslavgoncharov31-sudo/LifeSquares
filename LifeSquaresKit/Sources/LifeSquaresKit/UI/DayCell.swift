@@ -26,11 +26,12 @@ public struct DayCell: View {
     private var dotColor: Color {
         cell.state == .past ? Color(.systemBackground) : color.color
     }
-    private var borderWidth: CGFloat {
-        cell.state == .today ? 3 : 1
-    }
     private var showSlash: Bool {
         cell.state == .future && !cell.isAvailable
+    }
+    @Environment(\.dayCellStyle) private var style
+    private var borderWidth: CGFloat {
+        cell.state == .today ? style.todayBorderWidth : style.borderWidth
     }
     public var body: some View {
         RoundedRectangle(cornerRadius: cornerRadius)
@@ -50,6 +51,7 @@ public struct DayCell: View {
             .overlay {
                 if cell.hasMilestone {
                     Circle()
+                        .scale(style.milestoneDotScaleFactor)
                         .fill(dotColor)
                         .frame(width: 7, height: 7)
                         .padding(3)
