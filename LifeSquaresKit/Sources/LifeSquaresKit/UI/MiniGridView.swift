@@ -43,7 +43,7 @@ public struct MiniGridView: View {
         }
         .aspectRatio(1, contentMode: .fit)
         .accessibilityElement()
-        .accessibilityLabel("\(elapsedDays) of \(totalDays) days passed")
+        .accessibilityLabel(String(localized: "\(elapsedDays) of \(totalDays) days passed", bundle: .module))
     }
 }
 

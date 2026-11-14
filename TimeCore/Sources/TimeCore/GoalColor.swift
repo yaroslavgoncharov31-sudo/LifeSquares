@@ -1,6 +1,5 @@
 public enum GoalColor: String, Codable, CaseIterable, Sendable {
     case red, magenta, violet, blue, cyan, green, slate
-
     public var hex: (light: UInt32, dark: UInt32) {
         switch self {
         case .red:     (0xD6284A, 0xFF6B85)

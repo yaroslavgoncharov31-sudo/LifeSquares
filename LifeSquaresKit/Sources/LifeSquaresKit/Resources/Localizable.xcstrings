@@ -65,7 +65,7 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "machine_translated",
+            "state" : "translated",
             "value" : "✓"
           }
         }
@@ -87,6 +87,54 @@
         }
       }
     },
+    "Blue" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Niebieski"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Синий"
+          }
+        }
+      }
+    },
+    "Cyan" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Błękitny"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Голубой"
+          }
+        }
+      }
+    },
+    "Green" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Zielony"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Зеленый"
+          }
+        }
+      }
+    },
     "in %lldd" : {
       "localizations" : {
         "pl" : {
@@ -99,6 +147,38 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "через %lld д"
+          }
+        }
+      }
+    },
+    "Magenta" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Purpurowy"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Пурпурный"
+          }
+        }
+      }
+    },
+    "Milestones closed" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Zamknięte etapy"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Закрыто этапов"
           }
         }
       }
@@ -147,6 +227,39 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "недостаточно данных"
+          }
+        }
+      }
+    },
+    "Red" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Czerwony"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Красный"
+          }
+        }
+      }
+    },
+    "Slate" : {
+      "comment" : "Grey-blue goal color",
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Szaroniebieski"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Серо-синий"
           }
         }
       }
@@ -269,6 +382,22 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Всего дней: %1$lld, прошло: %2$lld"
+          }
+        }
+      }
+    },
+    "Violet" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Fioletowy"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "Фиолетовый"
           }
         }
       }
