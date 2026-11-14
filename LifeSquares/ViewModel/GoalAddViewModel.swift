@@ -91,7 +91,6 @@ extension GoalAddView {
         var orderedWeekdays: [Int] {
             (0..<7).map { i in (calendar.firstWeekday - 1 + i) % 7 + 1 }
         }
-
         var title: String = ""
         var startDay: Date {
             didSet {
@@ -219,6 +218,9 @@ extension GoalAddView {
                     goal.addMilestone(title: draft.title, on: target, calendar: calendar)
                 }
             }
+        }
+        func makeDayAccessibilityText(weekday: Int) -> String{
+           return calendar.standaloneWeekdaySymbols[weekday - 1]
         }
 
         @discardableResult

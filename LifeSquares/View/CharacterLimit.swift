@@ -17,6 +17,7 @@ struct CharacterLimit: ViewModifier {
                     .foregroundStyle(.secondary)
             }
         }
+        .accessibilityLabel("\(text.count) out of \(limit)")
     }
 }
 

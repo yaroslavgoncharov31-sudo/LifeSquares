@@ -67,6 +67,8 @@ struct GoalAddView: View {
                     }
                     .buttonStyle(.bordered)
                     .tint(viewModel.durationDays == days ? .accentColor : .secondary)
+                    .accessibilityLabel("\(days) days")
+                    .accessibilityAddTraits(viewModel.durationDays == days ? .isSelected : [])
                 }
             }
             if viewModel.durationDays == 0 {
@@ -104,7 +106,7 @@ struct GoalAddView: View {
                             .frame(maxWidth: .infinity)
                     }
                     .buttonStyle(.plain)
-                    .accessibilityLabel(color.rawValue.capitalized)
+                    .accessibilityLabel(color.displayName)
                     .accessibilityAddTraits(isSelected ? .isSelected : [])
 
                 }
@@ -121,6 +123,9 @@ struct GoalAddView: View {
                     .frame(maxWidth: .infinity)
                     .buttonStyle(.bordered)
                     .tint(viewModel.isOff(weekday) ? .accentColor : .secondary)
+                    .accessibilityAddTraits(viewModel.isOff(weekday) ? .isSelected : [])
+                    .accessibilityLabel(viewModel.makeDayAccessibilityText(weekday: weekday))
+
                 }
             }
         } header: {
@@ -215,7 +220,10 @@ struct GoalAddView: View {
         .toolbar {
             ToolbarItemGroup(placement: .keyboard) {
                 Spacer()
-                Button { focus = nil; isMilestoneFocused = false } label: { Image(systemName: "checkmark") }
+                Button { focus = nil; isMilestoneFocused = false } label: {
+                    Image(systemName: "checkmark")
+                }
+                .accessibilityLabel("Done")
             }
         }
         .scrollBounceBehavior(.basedOnSize)

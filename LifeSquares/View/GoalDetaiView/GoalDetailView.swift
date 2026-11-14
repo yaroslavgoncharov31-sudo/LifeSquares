@@ -35,6 +35,7 @@ struct GoalDetailView: View {
             Spacer()
             if viewModel.isReadOnly {
                 Image(systemName: m.status == .closed ? "checkmark.circle.fill" : "circle")
+                    .accessibilityLabel(m.status == .closed ? "\(m.title) Closed" : "\(m.title) Open")
             } else {
                 Button {
                     withAnimation(.snappy) { try? viewModel.toggle(m) }
@@ -128,6 +129,7 @@ struct GoalDetailView: View {
                 } label: {
                     Image(systemName: "ellipsis")
                 }
+                .accessibilityLabel("Actions")
             }
         }
         .sheet(isPresented: $showEdit, onDismiss: { viewModel.refresh() }) {

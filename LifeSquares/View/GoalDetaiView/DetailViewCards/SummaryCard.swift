@@ -17,6 +17,9 @@ struct SummaryCard: View {
             Text(label).font(labelFont).foregroundStyle(.secondary)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel(label)
+        .accessibilityValue(value)
     }
 
     var body: some View {
