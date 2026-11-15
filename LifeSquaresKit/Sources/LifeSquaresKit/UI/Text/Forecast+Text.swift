@@ -5,7 +5,7 @@ public extension Forecast {
     var forecastValue: String {
         switch self {
         case .notEnoughData:
-            String(localized: "-", bundle: .module)
+            String(localized: "—", bundle: .module)
         case .completed:
             String(localized: "✓", bundle: .module)
         case .projected(let days):
@@ -15,7 +15,7 @@ public extension Forecast {
     var forecastLabel: String {
         switch self {
         case .notEnoughData:
-            String(localized: "not enough data", bundle: .module)
+            String(localized: "Not enough data", bundle: .module)
         case .completed:
             String(localized: "all milestones closed", bundle: .module)
         case .projected:
