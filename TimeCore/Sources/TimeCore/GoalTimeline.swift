@@ -61,18 +61,14 @@ public struct GoalTimeline: Equatable, Sendable {
     }
 }
 
-extension GoalTimeline {
-    var anchorIndex: Int {
-        guard totalDays > 0 else { return 0 }
-        return min(elapsedDays, totalDays - 1)
-    }
+public extension GoalTimeline {
+    func visibleRange(size: Int, daysBeforeToday: Int) -> Range<Int> {
+        guard totalDays > 0, size > 0 else { return 0..<0 }
 
-    public func visibleRange(size: Int, daysBeforeToday: Int) -> Range<Int> {
-        precondition(size > 0 && (0..<size).contains(daysBeforeToday))
-        guard totalDays > size else { return 0..<totalDays }
+        let size = min(size, totalDays)                          
+        let today = min(max(elapsedDays, 0), totalDays - 1)
+        let lower = min(max(today - daysBeforeToday, 0), totalDays - size)
 
-        let latestStart = totalDays - size
-        let start = max(0, min(anchorIndex - daysBeforeToday, latestStart))
-        return start..<(start + size)
+        return lower..<(lower + size)
     }
 }
