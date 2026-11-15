@@ -64,6 +64,23 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		C4C57AA930A9E5EA00468A8E /* Exceptions for "LifeSquaresWidget" folder in "LifeSquares" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"BigDayNumber+BigMilestoneNumber.swift",
+				WidgetGlassChip.swift,
+				WidgetViews/GoalWidgetBackground.swift,
+			);
+			target = 000000000000000100000000 /* LifeSquares */;
+		};
+		C4C57AAD30A9ECB000468A8E /* Exceptions for "LifeSquares" folder in "LifeSquaresWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				View/GoalBackground.swift,
+				View/ViewModifiers/GlassChip.swift,
+			);
+			target = C4D870B930A3663F00584A02 /* LifeSquaresWidgetExtension */;
+		};
 		C4D870CC30A3664000584A02 /* Exceptions for "LifeSquaresWidget" folder in "LifeSquaresWidgetExtension" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -76,6 +93,9 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		000000000000000000000010 /* LifeSquares */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				C4C57AAD30A9ECB000468A8E /* Exceptions for "LifeSquares" folder in "LifeSquaresWidgetExtension" target */,
+			);
 			path = LifeSquares;
 			sourceTree = "<group>";
 		};
@@ -92,6 +112,7 @@
 		C4D870BF30A3663F00584A02 /* LifeSquaresWidget */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
+				C4C57AA930A9E5EA00468A8E /* Exceptions for "LifeSquaresWidget" folder in "LifeSquares" target */,
 				C4D870CC30A3664000584A02 /* Exceptions for "LifeSquaresWidget" folder in "LifeSquaresWidgetExtension" target */,
 			);
 			path = LifeSquaresWidget;
@@ -497,7 +518,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MARKETING_VERSION = 1.0;
@@ -539,7 +560,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MARKETING_VERSION = 1.0;
@@ -627,7 +648,7 @@
 				INFOPLIST_FILE = LifeSquaresWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = LifeSquaresWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -665,7 +686,7 @@
 				INFOPLIST_FILE = LifeSquaresWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = LifeSquaresWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
