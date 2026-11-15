@@ -7,10 +7,12 @@ struct GoalGridLayout: View {
     let color: GoalColor
     let snapshot: GoalSnapshot
     let columnCount: Int
+    let size: Int
+    let daysBeforeToday: Int
 
     var body: some View {
         LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 2), count: columnCount), spacing: 2) {
-            ForEach(snapshot.windowCells()) {
+            ForEach(snapshot.windowCells(size: size, daysBeforeToday: daysBeforeToday)) {
                 DayCell(cell: $0, color: color)
             }
         }

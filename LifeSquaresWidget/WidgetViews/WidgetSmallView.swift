@@ -13,20 +13,25 @@ struct WidgetSmallView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
             Text(title)
-                .font(.caption.weight(.semibold))
+                .font(.subheadline.weight(.semibold))
+                .foregroundStyle(.primary)
                 .lineLimit(1)
                 .minimumScaleFactor(0.8)
-            GoalGridLayout(color: color, snapshot: snapshot, columnCount: columnCount)
-            HStack {
-                Text(snapshot.dayText)
-                Spacer()
-                Text(snapshot.milestoneText)
+            HStack(alignment: .firstTextBaseline, spacing: 0) {
+                Text(snapshot.timeline.elapsedDays, format: .number)
+                    .font(.system(.largeTitle, design: .rounded, weight: .bold))
+                Text("/\(snapshot.timeline.totalDays)")
+                    .font(.system(.subheadline, design: .rounded))
+                    .foregroundStyle(.secondary)
             }
-            .font(.caption2)
+            .widgetGlassChip()
             .monospacedDigit()
-            .foregroundStyle(.secondary)
+            HStack(alignment: .top) {
+                GoalGridLayout(color: color, snapshot: snapshot, columnCount: columnCount, size: 50, daysBeforeToday: 19)
+            }
+            Spacer(minLength: 0)
         }
-        .accessibilityElement(children: .combine)
+        .widgetAccentable()
     }
 }
 
@@ -36,3 +41,4 @@ struct WidgetSmallView: View {
     GoalEntry.makeSample()
     GoalEntry(date: .now, content: .noGoal)
 }
+

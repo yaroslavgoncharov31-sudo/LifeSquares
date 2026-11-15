@@ -12,35 +12,33 @@ struct WidgetMediumView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
-            HStack {
-                Text(title)
-                    .font(.headline.weight(.semibold))
-                Spacer()
-                VStack {
-                    if snapshot.forecast != .notEnoughData {
-                        Text(snapshot.forecast == .completed ? "\(snapshot.forecast.forecastValue)" : "\(snapshot.forecast.forecastValue) days")
-                        Text(snapshot.forecast.forecastLabel)
+            Text(title)
+                .font(.subheadline.weight(.semibold))
+            HStack(alignment: .top, spacing: 16) {
+                GoalGridLayout(color: color, snapshot: snapshot, columnCount: columnCount, size: 54, daysBeforeToday: 16)
+                VStack(alignment: .leading) {
+                    Spacer(minLength: 0)
+                    HStack(alignment: .firstTextBaseline) {
+                        BigDayNumber(snapshot: snapshot)
+                        Text("Days")
+                            .font(.system(.subheadline, design: .rounded))
+                            .foregroundStyle(.secondary)
                     }
+                    HStack(alignment: .firstTextBaseline) {
+                        BigMilestoneNumber(snapshot: snapshot)
+                        Text("Milestones")
+                            .font(.system(.subheadline, design: .rounded))
+                            .foregroundStyle(.secondary)
+                    }
+                    Spacer(minLength: 0)
                 }
-                .font(.caption.weight(.semibold))
+                .widgetGlassChip()
+                .frame(maxWidth: .infinity, alignment: .leading)
             }
-            .lineLimit(1)
-            .minimumScaleFactor(0.8)
-            GoalGridLayout(color: color, snapshot: snapshot, columnCount: columnCount)
-                .padding(.bottom, 3)
-            HStack {
-                Text(snapshot.dayText)
-                Spacer()
-                Text(snapshot.milestoneText)
-            }
-            .font(.footnote)
-            .monospacedDigit()
-            .foregroundStyle(.secondary)
+            .fixedSize(horizontal: false, vertical: true)
         }
-        .accessibilityElement(children: .combine)
     }
 }
-
 #Preview(as: .systemMedium) {
     LifeSquaresWidget()
 } timeline: {
