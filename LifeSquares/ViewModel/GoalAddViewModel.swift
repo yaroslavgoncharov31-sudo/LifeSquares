@@ -219,7 +219,7 @@ extension GoalAddView {
                 }
             }
         }
-        func makeDayAccessibilityText(weekday: Int) -> String{
+        func makeDayAccessibilityText(weekday: Int) -> String {
            return calendar.standaloneWeekdaySymbols[weekday - 1]
         }
 
