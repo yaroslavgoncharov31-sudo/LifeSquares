@@ -19,19 +19,20 @@ struct GoalDetailView: View {
         _viewModel = State(initialValue: ViewModel(goal: goal, calendar: calendar, now: now))
     }
     private func milestoneRow(_ m: Milestone) -> some View {
-        let isClosed = m.status == .closed
         return HStack(spacing: 12) {
             ZStack(alignment: .leading) {
                 Text(m.title)
                     .lineLimit(1)
                     .truncationMode(.tail)
                     .foregroundStyle(m.status == .closed ? .secondary : .primary)
-                Rectangle()
-                    .frame(height: 2)
-                    .foregroundColor(.gray.opacity(0.5))
-                    .scaleEffect(x: isClosed ? 1 : 0, anchor: .leading)
+                    .overlay(alignment: .leading) {
+                        Rectangle()
+                            .frame(height: 2)
+                            .foregroundColor(.gray.opacity(0.7))
+                            .scaleEffect(x: m.status == .closed ? 1 : 0, anchor: .leading)
+                    }
             }
-            .animation(.easeInOut(duration: 0.3), value: isClosed)
+            .animation(.easeInOut(duration: 0.3), value: m.status == .closed)
             Spacer()
             if viewModel.isReadOnly {
                 Image(systemName: m.status == .closed ? "checkmark.circle.fill" : "circle")
@@ -75,8 +76,9 @@ struct GoalDetailView: View {
                 }
             }
             .padding(12)
-            .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 16))
+            .background(.thinMaterial, in: RoundedRectangle(cornerRadius: 16))
         }
+        .padding(.horizontal, 4)
     }
 
     private var insight: some View {
@@ -88,6 +90,7 @@ struct GoalDetailView: View {
             style: .secondary
         )
 
+
     }
     private var summary: some View {
         SummaryCard(
@@ -97,7 +100,6 @@ struct GoalDetailView: View {
             rightLabel: viewModel.snapshot.milestoneLabelText,
             style: .primary
         )
-        .frame(maxWidth: .infinity)
     }
     var body: some View {
         ScrollView {
@@ -107,6 +109,8 @@ struct GoalDetailView: View {
                 DayGridView(cells: (viewModel.isGridExpanded ? viewModel.cells : viewModel.snapshot.windowCells()), color: viewModel.goal.color, accessibilityText: viewModel.snapshot.gridAccessibilityText)
                     .padding(10)
             }
+            .background(.thinMaterial, in: RoundedRectangle(cornerRadius: 16))
+            .padding(.horizontal, 4)
             milestoneSection
         }
         .navigationTitle(viewModel.goal.title)
@@ -141,7 +145,7 @@ struct GoalDetailView: View {
             Text("The goal and all its milestones will be removed. This action can't be undone")
         }
         .sensoryFeedback(.warning, trigger: showDeleteConfirmation) { _, isShown in isShown }
-        .background(Color(.systemGroupedBackground))
+        .background(GoalBackground(color: viewModel.goal.color.color).ignoresSafeArea())
     }
     private func deleteGoal() {
         try? viewModel.deleteGoal()

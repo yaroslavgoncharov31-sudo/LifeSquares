@@ -37,7 +37,8 @@ struct InsightCard: View {
         }
         .fixedSize(horizontal: false, vertical: true)
         .padding(padding)
-        .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 16))
+        .background(.thinMaterial, in: RoundedRectangle(cornerRadius: 16))
+        .padding(.horizontal, 4)
     }
 }
 
