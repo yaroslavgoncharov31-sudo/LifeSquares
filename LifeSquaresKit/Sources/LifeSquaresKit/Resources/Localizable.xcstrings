@@ -1,25 +1,21 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "-" : {
-      "extractionState" : "stale",
+    "—" : {
       "localizations" : {
         "pl" : {
           "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "-"
+            "state" : "translated",
+            "value" : "—"
           }
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "-"
+            "state" : "translated",
+            "value" : "—"
           }
         }
       }
-    },
-    "—" : {
-
     },
     "%lld of %lld days passed" : {
       "localizations" : {
@@ -219,25 +215,21 @@
         }
       }
     },
-    "not enough data" : {
-      "extractionState" : "stale",
+    "Not enough data" : {
       "localizations" : {
         "pl" : {
           "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "za mało danych"
+            "state" : "translated",
+            "value" : "Za mało danych"
           }
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "недостаточно данных"
+            "state" : "translated",
+            "value" : "Недостаточно данных "
           }
         }
       }
-    },
-    "Not enough data" : {
-
     },
     "Red" : {
       "localizations" : {
