@@ -121,7 +121,15 @@ extension GoalAddView {
         var availability: Availability
         var offWeekdays: OffWeekdays = [] { didSet { updateAvailability() } }
         var offDays: [Date] = [] { didSet { updateAvailability() } }
-
+        var lastMilestoneDay: Int {
+            milestones.map(\.dayNumber).max() ?? 0
+        }
+        var hasMilestoneOutOfRange: Bool {
+            validationIssues.contains { issue in
+                if case .milestoneOutOfRange = issue { return true }
+                return false
+            }
+        }
         var validationIssues: [ValidationIssue] {
             var issues: [ValidationIssue] = []
             if durationDays > 3650 || durationDays < 1 {

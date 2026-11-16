@@ -82,6 +82,10 @@ struct GoalAddView: View {
             if viewModel.validationIssues.contains(.durationOutOfRange) {
                 Text("From 1 to 3650 days")
             }
+            if viewModel.hasMilestoneOutOfRange {
+                Text("Can't be shorter than the last milestone (day \(viewModel.lastMilestoneDay))")
+                    .foregroundStyle(.red)
+            }
         }
         .onChange(of: viewModel.durationDays) { _, new in
             if Int(durationText) != new { durationText = String(new) }
