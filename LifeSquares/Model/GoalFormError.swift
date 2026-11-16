@@ -6,8 +6,8 @@ enum GoalFormError: LocalizedError {
 
     var errorDescription: String? {
         switch self {
-        case .invalid: "Some fields need attention"
-        case .saveFailed(let underlying): "Couldn't save the goal. \(underlying)"
+        case .invalid: String(localized: "Some fields need attention")
+        case .saveFailed(let underlying): String(localized: "Couldn't save the goal. \(underlying.localizedDescription)")
         }
     }
     }
