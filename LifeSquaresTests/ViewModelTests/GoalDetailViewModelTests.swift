@@ -123,7 +123,7 @@ struct GoalDetailViewModelTests {
         )
         let vm = GoalDetailView.ViewModel(goal: goal, calendar: calendar, now: { now })
 
-        #expect(vm.workingDayText == "5/9")
+        #expect(vm.snapshot.workingDayText == "5/9")
     }
 
     @Test func forecast_allMilestonesOpen_returnsCorrectValues() {
@@ -152,8 +152,8 @@ struct GoalDetailViewModelTests {
         m4.goal = goal
         let vm = GoalDetailView.ViewModel(goal: goal, calendar: calendar, now: { now })
 
-        #expect(vm.snapshot.forecast.forecastValue == "-")
-        #expect(vm.snapshot.forecast.forecastLabel == "not enough data")
+        #expect(vm.snapshot.forecast.forecastValue == "—")
+        #expect(vm.snapshot.forecast.forecastLabel == "Not enough data")
     }
 
     @Test func forecast_allMilestonesClosed_returnsCorrectValues() throws {
