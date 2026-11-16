@@ -2,6 +2,7 @@
   "sourceLanguage" : "en",
   "strings" : {
     "-" : {
+      "extractionState" : "stale",
       "localizations" : {
         "pl" : {
           "stringUnit" : {
@@ -16,6 +17,9 @@
           }
         }
       }
+    },
+    "—" : {
+
     },
     "%lld of %lld days passed" : {
       "localizations" : {
@@ -216,6 +220,7 @@
       }
     },
     "not enough data" : {
+      "extractionState" : "stale",
       "localizations" : {
         "pl" : {
           "stringUnit" : {
@@ -230,6 +235,9 @@
           }
         }
       }
+    },
+    "Not enough data" : {
+
     },
     "Red" : {
       "localizations" : {

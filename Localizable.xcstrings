@@ -1,6 +1,22 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "/%lld" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/%lld"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/%lld"
+          }
+        }
+      }
+    },
     "%@" : {
       "localizations" : {
         "pl" : {
@@ -51,22 +67,6 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Этап «%@» закрыт"
-          }
-        }
-      }
-    },
-    "%@ days" : {
-      "localizations" : {
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dni: %@"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "%@ дн."
           }
         }
       }
@@ -453,6 +453,22 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Со временем здесь появятся архивные цели"
+          }
+        }
+      }
+    },
+    "Can't be shorter than the last milestone (day %lld)" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nie krócej niż ostatni etap (dzień %lld)"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не меньше последнего этапа (день %lld)"
           }
         }
       }
