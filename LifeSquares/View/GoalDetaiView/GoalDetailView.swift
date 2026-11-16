@@ -148,8 +148,8 @@ struct GoalDetailView: View {
         .background(GoalBackground(color: viewModel.goal.color.color).ignoresSafeArea())
     }
     private func deleteGoal() {
-        try? viewModel.deleteGoal()
         dismiss()
+        try? viewModel.deleteGoal()
     }
 }
 
