@@ -35,6 +35,9 @@ struct MilestoneInputRow: View {
                 title = ""
                 isFocused.wrappedValue = true
             }
+            .onChange(of: range) { _, new in
+                date = min(max(date, new.lowerBound), new.upperBound)
+            }
             .buttonStyle(.borderless)
             .disabled(trimmed.isEmpty)
         }
