@@ -76,7 +76,7 @@
 		C4C57AAD30A9ECB000468A8E /* Exceptions for "LifeSquares" folder in "LifeSquaresWidgetExtension" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				View/GoalBackground.swift,
+				Components/GoalBackground.swift,
 			);
 			target = C4D870B930A3663F00584A02 /* LifeSquaresWidgetExtension */;
 		};
