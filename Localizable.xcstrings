@@ -569,6 +569,9 @@
         }
       }
     },
+    "Couldn't save the goal. %@" : {
+
+    },
     "Create" : {
       "localizations" : {
         "pl" : {
@@ -1080,6 +1083,9 @@
           }
         }
       }
+    },
+    "Some fields need attention" : {
+
     },
     "Specific non-working dates" : {
       "localizations" : {
