@@ -1,0 +1,9 @@
+{
+  "id" : "f358f456-596e-4437-939a-48de03a598e8",
+  "targets" : [
+    {
+      "id" : "a21b42df-6b83-462a-bf93-edd666ab5377",
+      "name" : "LifeSquares"
+    }
+  ]
+}
