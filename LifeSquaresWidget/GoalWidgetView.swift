@@ -55,7 +55,6 @@ struct NoGoalView: View {
                 .padding(.bottom, 3)
             Text("Create a goal in the app")
         }
-        .glassChip()
         .font(.caption)
         .foregroundStyle(.secondary)
         .multilineTextAlignment(.center)
