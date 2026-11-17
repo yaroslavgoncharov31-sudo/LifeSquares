@@ -574,7 +574,7 @@
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nie udało się zachować cel. %@"
+            "value" : "Nie udało się zapisać celu. %@"
           }
         },
         "ru" : {
