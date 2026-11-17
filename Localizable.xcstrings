@@ -570,7 +570,20 @@
       }
     },
     "Couldn't save the goal. %@" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nie udało się zachować cel. %@"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось сохранить цель. %@"
+          }
+        }
+      }
     },
     "Create" : {
       "localizations" : {
@@ -1085,7 +1098,21 @@
       }
     },
     "Some fields need attention" : {
-
+      "comment" : "Validation error shown when a form has invalid fields",
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sprawdź zaznaczone pola"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Проверьте выделенные поля"
+          }
+        }
+      }
     },
     "Specific non-working dates" : {
       "localizations" : {
