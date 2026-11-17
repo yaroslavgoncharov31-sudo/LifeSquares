@@ -67,9 +67,9 @@
 		C4C57AA930A9E5EA00468A8E /* Exceptions for "LifeSquaresWidget" folder in "LifeSquares" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				"BigDayNumber+BigMilestoneNumber.swift",
-				WidgetGlassChip.swift,
-				WidgetViews/GoalWidgetBackground.swift,
+				WidgetViews/SharedViewComponents/Background/GoalWidgetBackground.swift,
+				"WidgetViews/SharedViewComponents/BigNumbers/BigDayNumber+BigMilestoneNumber.swift",
+				WidgetViews/SharedViewComponents/ViewModifiers/WidgetGlassChip.swift,
 			);
 			target = 000000000000000100000000 /* LifeSquares */;
 		};
@@ -77,7 +77,6 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				View/GoalBackground.swift,
-				View/ViewModifiers/GlassChip.swift,
 			);
 			target = C4D870B930A3663F00584A02 /* LifeSquaresWidgetExtension */;
 		};
