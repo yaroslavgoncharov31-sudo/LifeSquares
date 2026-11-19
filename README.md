@@ -81,7 +81,7 @@ SwiftUI · SwiftData · WidgetKit · App Intents · Swift Testing · Swift Packa
 **Requirements:** Xcode 27, iOS 18+.
 
 ```bash
-git clone https://github.com/GITHUB_USERNAME/LifeSquares.git
+git clone https://github.com/yaroslavgoncharov31-sudo/LifeSquares.git
 cd LifeSquares
 open LifeSquares.xcodeproj
 ```
@@ -110,4 +110,4 @@ The LifeSquares name, app icon, and App Store materials are not covered by this 
 
 ---
 
-Designed and built by **Yaroslav Honcharov** · [LinkedIn]([LINKEDIN_URL](https://www.linkedin.com/in/yaroslav-honcharov-ios/))
+Designed and built by **Yaroslav Honcharov** · [LinkedIn]([LINKEDIN_URL](https://www.linkedin.com/in/yaroslav-honcharov-ios/)
