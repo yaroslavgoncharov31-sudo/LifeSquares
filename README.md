@@ -110,4 +110,4 @@ The LifeSquares name, app icon, and App Store materials are not covered by this 
 
 ---
 
-Designed and built by **Yaroslav Honcharov** · [LinkedIn](LINKEDIN_URL)
+Designed and built by **Yaroslav Honcharov** · [LinkedIn]([LINKEDIN_URL](https://www.linkedin.com/in/yaroslav-honcharov-ios/))
