@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <img src="https://github.com/GITHUB_USERNAME/LifeSquares/actions/workflows/ci.yml/badge.svg" alt="CI">
+  <img src="https://github.com/yaroslavgoncharov31-sudo/LifeSquares/actions/workflows/ci.yml/badge.svg" alt="CI">
   <img src="https://img.shields.io/badge/iOS-18%2B-blue" alt="iOS 18+">
   <img src="https://img.shields.io/badge/Swift-6-orange" alt="Swift 6">
   <img src="https://img.shields.io/badge/license-MIT-green" alt="MIT License">
@@ -19,9 +19,9 @@
 
 ## Screenshots
 
-| Goals | Goal detail | New goal | Archive | Widgets |
+| Goals | Goal detail | New goal | Home Screen widgets | Lock Screen widgets |
 |:---:|:---:|:---:|:---:|:---:|
-| <img src="docs/media/01-goals.png" width="180"> | <img src="docs/media/02-detail.png" width="180"> | <img src="docs/media/03-new-goal.png" width="180"> | <img src="docs/media/04-archive.png" width="180"> | <img src="docs/media/05-widgets.png" width="180"> |
+| <img src="docs/media/01-goals.png" width="180"> | <img src="docs/media/02-detail.png" width="180"> | <img src="docs/media/03-new-goal.png" width="180"> | <img src="docs/media/04-home-widgets.png" width="180"> | <img src="docs/media/05-lock-screen.png" width="180"> |
 
 ## Features
 
@@ -36,13 +36,14 @@
 
 ## Architecture
 
-The project is split into two local Swift packages and two targets that consume them:
+The project is split into two local Swift packages and two targets that consume them (arrows point from a module to what it depends on):
 
 ```mermaid
 graph TD
     App[LifeSquares app] --> Kit[LifeSquaresKit]
     Widget[Widget extension] --> Kit
     App --> Core[TimeCore]
+    Widget --> Core
     Kit --> Core
 ```
 
@@ -51,7 +52,7 @@ graph TD
 | **TimeCore** | Pure date logic: goal timeline, working-day availability, milestone progress, forecast. Value types only, `Sendable`, no UI and no persistence. | Foundation |
 | **LifeSquaresKit** | Shared layer for the app and the widget: SwiftData models (`Goal`, `Milestone`), the shared `ModelContainer` in an App Group, and the grid UI components. | TimeCore, SwiftData, SwiftUI |
 | **LifeSquares** (app) | Feature screens (list, detail, add/edit, archive), MVVM view models, navigation. | LifeSquaresKit, TimeCore |
-| **Widget** | Timeline provider, App Intent for goal selection, widget views. | LifeSquaresKit |
+| **Widget** | Timeline provider, App Intent for goal selection, widget views. | LifeSquaresKit, TimeCore |
 
 **Why this split:**
 
@@ -77,7 +78,7 @@ SwiftUI · SwiftData · WidgetKit · App Intents · Swift Testing · Swift Packa
 
 ## Getting started
 
-**Requirements:** Xcode XCODE_VERSION, iOS 18+.
+**Requirements:** Xcode 27, iOS 18+.
 
 ```bash
 git clone https://github.com/GITHUB_USERNAME/LifeSquares.git
