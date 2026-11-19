@@ -27,6 +27,7 @@ struct GoalCard: View {
     }
 }
 
+#if DEBUG
 #Preview {
     GoalCard(
         title: "Read every day",
@@ -37,3 +38,4 @@ struct GoalCard: View {
             now: PreviewData.date(2026, 10, 31)
         ))
 }
+#endif
