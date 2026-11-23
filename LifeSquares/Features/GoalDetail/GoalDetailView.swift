@@ -76,7 +76,8 @@ struct GoalDetailView: View {
                 }
             }
             .padding(12)
-            .background(.thinMaterial, in: RoundedRectangle(cornerRadius: 16))
+            .glassEffect(in: RoundedRectangle(cornerRadius: 16))
+//            .background(.thinMaterial, in: RoundedRectangle(cornerRadius: 16))
         }
         .padding(.horizontal, 4)
     }
@@ -109,7 +110,8 @@ struct GoalDetailView: View {
                 DayGridView(cells: (viewModel.isGridExpanded ? viewModel.cells : viewModel.snapshot.windowCells()), color: viewModel.goal.color, accessibilityText: viewModel.snapshot.gridAccessibilityText)
                     .padding(10)
             }
-            .background(.thinMaterial, in: RoundedRectangle(cornerRadius: 16))
+            .glassEffect(in: RoundedRectangle(cornerRadius: 16))
+//            .background(.thinMaterial, in: RoundedRectangle(cornerRadius: 16))
             .padding(.horizontal, 4)
             milestoneSection
         }

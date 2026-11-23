@@ -23,6 +23,7 @@ struct GoalCard: View {
             .monospacedDigit()
         }
         .cardStyle()
+        .glassEffect(in: RoundedRectangle(cornerRadius: 16))
         .accessibilityElement(children: .combine)
     }
 }
