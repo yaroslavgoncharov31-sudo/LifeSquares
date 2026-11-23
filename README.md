@@ -12,7 +12,7 @@
 
 <p align="center">
   <img src="https://github.com/yaroslavgoncharov31-sudo/LifeSquares/actions/workflows/ci.yml/badge.svg" alt="CI">
-  <img src="https://img.shields.io/badge/iOS-18%2B-blue" alt="iOS 18+">
+  <img src="https://img.shields.io/badge/iOS-26%2B-blue" alt="iOS 26+">
   <img src="https://img.shields.io/badge/Swift-6-orange" alt="Swift 6">
   <img src="https://img.shields.io/badge/license-MIT-green" alt="MIT License">
 </p>
