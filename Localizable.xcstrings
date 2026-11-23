@@ -409,6 +409,9 @@
         }
       }
     },
+    "Add anyway" : {
+
+    },
     "Archive" : {
       "localizations" : {
         "pl" : {
@@ -841,6 +844,12 @@
         }
       }
     },
+    "Enter demo mode" : {
+
+    },
+    "Exit demo" : {
+
+    },
     "From 1 to 3650 days" : {
       "localizations" : {
         "pl" : {
@@ -888,6 +897,9 @@
           }
         }
       }
+    },
+    "Goals you add in demo mode will be deleted when you exit" : {
+
     },
     "How forecast works" : {
       "localizations" : {
@@ -1032,6 +1044,9 @@
           }
         }
       }
+    },
+    "Or swipe up to enter demo mode" : {
+
     },
     "Reopen %@" : {
       "localizations" : {
@@ -1225,6 +1240,9 @@
           }
         }
       }
+    },
+    "You are in demo mode" : {
+
     },
     "You can add milestones later" : {
       "localizations" : {
