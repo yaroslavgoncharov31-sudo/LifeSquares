@@ -377,6 +377,22 @@
         }
       }
     },
+    "5 km Run" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bieg na 5 km"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Забег на 5 км"
+          }
+        }
+      }
+    },
     "Actions" : {
       "localizations" : {
         "pl" : {
@@ -410,7 +426,20 @@
       }
     },
     "Add anyway" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dodaj mimo to"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Всё равно добавить"
+          }
+        }
+      }
     },
     "Archive" : {
       "localizations" : {
@@ -456,6 +485,38 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Со временем здесь появятся архивные цели"
+          }
+        }
+      }
+    },
+    "Beta test with friends" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Przetestować ze znajomymi"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Провести бета-тест с друзьями"
+          }
+        }
+      }
+    },
+    "Build the MVP" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zbudować pierwszą wersję"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сделать первую версию"
           }
         }
       }
@@ -552,6 +613,22 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Цвет"
+          }
+        }
+      }
+    },
+    "Complete practice tests" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Napisać próbną maturę"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Написать пробные экзамены"
           }
         }
       }
@@ -748,6 +825,22 @@
         }
       }
     },
+    "Design main screens" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zaprojektować główne ekrany"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Спроектировать основные экраны"
+          }
+        }
+      }
+    },
     "Done" : {
       "localizations" : {
         "pl" : {
@@ -845,10 +938,68 @@
       }
     },
     "Enter demo mode" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Włącz tryb demo"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Включить демо-режим"
+          }
+        }
+      }
     },
     "Exit demo" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wyjdź z demo"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Выйти из демо"
+          }
+        }
+      }
+    },
+    "Finish math review" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Powtórzyć matematykę"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Повторить математику"
+          }
+        }
+      }
+    },
+    "Finish physics review" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Powtórzyć fizykę"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Повторить физику"
+          }
+        }
+      }
     },
     "From 1 to 3650 days" : {
       "localizations" : {
@@ -899,7 +1050,20 @@
       }
     },
     "Goals you add in demo mode will be deleted when you exit" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cele dodane w trybie demo zostaną usunięte po wyjściu."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Цели, добавленные в демо-режиме, будут удалены при выходе."
+          }
+        }
+      }
     },
     "How forecast works" : {
       "localizations" : {
@@ -929,6 +1093,102 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Как работает прогноз\nПрогноз основан на текущем темпе: сколько рабочих дней ушло на уже закрытые этапы. Считается, что на каждый из оставшихся уйдет примерно столько же.\n\nПример: 2 этапа закрыты за 10 рабочих дней, осталось 4 → еще примерно 20 рабочих дней.\n\nПрогноз появится после закрытия первого этапа, когда пройдет примерно пятая часть рабочих дней цели. Все этапы считаются равнозначными. Выходные не учитываются."
+          }
+        }
+      }
+    },
+    "Keep tempo at 80 bpm" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Utrzymać tempo 80 BPM"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Держать темп 80 BPM"
+          }
+        }
+      }
+    },
+    "Launch a side project" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uruchomić własny projekt"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Запустить свой проект"
+          }
+        }
+      }
+    },
+    "Learn barre chords" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nauczyć się akordów barré"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Освоить аккорды с баррэ"
+          }
+        }
+      }
+    },
+    "Learn basic chords" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nauczyć się podstawowych akordów"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Выучить базовые аккорды"
+          }
+        }
+      }
+    },
+    "Learn to Play Guitar" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nauczyć się grać na gitarze"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Научиться играть на гитаре"
+          }
+        }
+      }
+    },
+    "Make a study schedule" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ułożyć plan nauki"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Составить план подготовки"
           }
         }
       }
@@ -1046,7 +1306,84 @@
       }
     },
     "Or swipe up to enter demo mode" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lub przesuń w górę, aby włączyć tryb demo"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Или смахните вверх, чтобы открыть демо-режим"
+          }
+        }
+      }
+    },
+    "Pass Final Exams" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zdać maturę"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сдать экзамены"
+          }
+        }
+      }
+    },
+    "Pick an idea" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wybrać pomysł"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Выбрать идею"
+          }
+        }
+      }
+    },
+    "Play a song for friends" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zagrać piosenkę dla znajomych"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сыграть песню друзьям"
+          }
+        }
+      }
+    },
+    "Play first full song" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zagrać pierwszą całą piosenkę"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сыграть первую песню целиком"
+          }
+        }
+      }
     },
     "Reopen %@" : {
       "localizations" : {
@@ -1060,6 +1397,70 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Открыть этап «%@» снова"
+          }
+        }
+      }
+    },
+    "Run 1 km without stopping" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Przebiec 1 km bez zatrzymywania się"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пробежать 1 км без остановки"
+          }
+        }
+      }
+    },
+    "Run 2 km" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Przebiec 2 km"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пробежать 2 км"
+          }
+        }
+      }
+    },
+    "Run 3 km" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Przebiec 3 km"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пробежать 3 км"
+          }
+        }
+      }
+    },
+    "Run 5 km" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Przebiec 5 km"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пробежать 5 км"
           }
         }
       }
@@ -1096,6 +1497,22 @@
         }
       }
     },
+    "Ship it" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wypuścić projekt"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Выпустить проект"
+          }
+        }
+      }
+    },
     "Show all days" : {
       "localizations" : {
         "pl" : {
@@ -1108,6 +1525,22 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "Показать все дни"
+          }
+        }
+      }
+    },
+    "Sit the final exams" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Napisać maturę"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Написать экзамены"
           }
         }
       }
@@ -1177,6 +1610,22 @@
         }
       }
     },
+    "Switch chords smoothly" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Płynnie zmieniać akordy"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Плавно менять аккорды"
+          }
+        }
+      }
+    },
     "Term" : {
       "localizations" : {
         "pl" : {
@@ -1242,7 +1691,20 @@
       }
     },
     "You are in demo mode" : {
-
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jesteś w trybie demo"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вы в демо-режиме"
+          }
+        }
+      }
     },
     "You can add milestones later" : {
       "localizations" : {
