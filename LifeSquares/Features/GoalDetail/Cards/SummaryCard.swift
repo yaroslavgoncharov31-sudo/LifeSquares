@@ -31,7 +31,6 @@ struct SummaryCard: View {
         .fixedSize(horizontal: false, vertical: true)
         .padding(padding)
         .glassEffect(in: RoundedRectangle(cornerRadius: 16))
-//        .background(.thinMaterial, in: RoundedRectangle(cornerRadius: 16))
         .padding(.horizontal, 4)
     }
 }

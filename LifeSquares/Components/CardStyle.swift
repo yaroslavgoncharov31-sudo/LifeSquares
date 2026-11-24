@@ -1,4 +1,3 @@
-import Foundation
 import SwiftUI
 
 enum CardStyle { case primary, secondary }
